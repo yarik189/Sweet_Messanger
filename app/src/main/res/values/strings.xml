@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sweet Messanger</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string-array name="entries">
+        <item>тест</item>
+        <item>охеренный тест</item>
+        <item>ипааать</item>
+    </string-array>
+
+    <string-array name="entry_values">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    </string-array>
+    <string name="action_settings">Settings</string>
+    <string name="mes">Сообщения</string>
+    <string name="friends">Друзья</string>
+    <string name="contact">Обратная связь</string>
+    <string name="chainglog"><b>*2.0</b>\nПолный редесигн приложения<b>*1.6</b>\nПрозрачность статусбара\nПланка поднята до Android 4.4\n<b>*1.2</b>\nПервая попытка подключить сообщения\n<b>*1.1</b>\nДобавление настроек\n<b>*1.0</b>\nМеню навигации\nУлучшена работоспособность\nMinSdk 14\nЕще что-то\n<b>*0.6</b>\nСоздание этого окна\n<b>*0.5.9.1</b>\nБагфиксы\n<b>*0.1</b>\nПервый релиз</string>
+</resources>

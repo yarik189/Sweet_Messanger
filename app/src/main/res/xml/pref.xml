@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Основное"/>
+    <CheckBoxPreference
+        android:title="Отправлять отчет"/>
+
+
+    <PreferenceCategory
+        android:title="О разработчиках"/>
+    <PreferenceScreen
+        android:title="Узнайте разработчиков">
+        <PreferenceScreen
+            android:title="Роман Заболотских"
+            android:summary="Кодер">
+            <Preference
+                android:title="Вконтакте">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://vk.com/roman_zabolotskih">
+                </intent>
+            </Preference>
+            <Preference
+                android:title="Сайт">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://romik.cf">
+                </intent>
+            </Preference>
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:title="Сергей Романов"
+            android:summary="Десигнер">
+            <Preference
+                android:title="Вконтакте">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://vk.com/sergo_rus24">
+                </intent>
+            </Preference>
+
+        </PreferenceScreen>
+    </PreferenceScreen>
+
+
+
+    <PreferenceCategory
+        android:title="О сборке"/>
+    <Preference
+        android:title="Версия"
+        android:summary="2.0.8(dev)">
+    </Preference>
+    <Preference
+        android:title="Дата сборки"
+        android:summary="13.04.2015 20-03(kanefron5)">
+    </Preference>
+    <PreferenceCategory
+        android:title="Для разработчиков"/>
+    <CheckBoxPreference
+        android:key="chb1"
+        android:summaryOff="тест off"
+        android:summaryOn="тест on"
+        android:title="Тест">
+    </CheckBoxPreference>
+    <ListPreference
+        android:dependency="chb1"
+        android:entries="@array/entries"
+        android:entryValues="@array/entry_values"
+        android:key="list"
+        android:summary="Для доступа включи чекбокс"
+        android:title="Тест">
+        </ListPreference>
+    <Preference
+        android:title="Вызвать ошибку в программе"
+        android:summary="Не нажимайте просто так!">
+        <intent
+            android:action="android.intent.action.APP_ERROR"
+            android:data="error">
+        </intent>
+    </Preference>
+</PreferenceScreen>
