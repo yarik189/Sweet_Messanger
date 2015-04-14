@@ -17,18 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Messages"
-            android:label="Сообщения"
 
-            android:noHistory="true">
 
-            </activity>
-        <activity android:name=".Friends"
-            android:label="Друзья"
 
-            android:noHistory="true">
-
-        </activity>
 <activity android:name=".Chaing"
     android:label="Список изменений"
     android:theme="@style/Chaing">

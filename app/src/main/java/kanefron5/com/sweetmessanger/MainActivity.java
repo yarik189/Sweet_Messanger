@@ -66,14 +66,14 @@ public class MainActivity extends ActionBarActivity {
                         if (drawerItem instanceof Nameable) {
 
 
-                           Fragment fragment;
+                            Fragment fragment;
                             FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
 
-                              switch (position) {
+                            switch (position) {
                                 default:
-                                  case 0:
-                                      fragment = new Mes();
-                                      break;
+                                case 0:
+                                    fragment = new Mes();
+                                    break;
                                 case 1:
                                     fragment = new Fri();
 
@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity {
                                     fragment = new Fri();
                                     break;
                                 case 3:
-                                    fragment = new Set();
+                                    fragment = new Settings();
                                     break;
                                 case 4:
                                     fragment = new TalkBack();
@@ -92,8 +92,8 @@ public class MainActivity extends ActionBarActivity {
                             fragmentManager.beginTransaction()
                                     .replace(R.id.content_frame, fragment)
                                     .commit();
-                            }
                         }
+                    }
                 })
                 .build();
     }
