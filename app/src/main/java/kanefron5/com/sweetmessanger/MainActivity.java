@@ -1,15 +1,12 @@
 package kanefron5.com.sweetmessanger;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.FragmentManager;
 import android.content.Intent;
-import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,23 +14,16 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Toast;
-
-import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.Badgeable;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
-
-import java.util.jar.Attributes;
 
 public class MainActivity extends ActionBarActivity {
 
     private Drawer.Result drawerResult = null;
-    private int x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.mes),
                         new PrimaryDrawerItem().withName(R.string.friends),
-                        new SectionDrawerItem().withName(R.string.action_settings),
+                        new SectionDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.action_settings),
                         new SecondaryDrawerItem().withName(R.string.contact)
                 )
@@ -75,37 +65,56 @@ public class MainActivity extends ActionBarActivity {
                     // Обработка клика
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                         if (drawerItem instanceof Nameable) {
-                            Toast.makeText(MainActivity.this, MainActivity.this.getString(((Nameable) drawerItem).getNameRes()), Toast.LENGTH_SHORT).show();
 
 
-                            switch (position) {
+                            /** Fragment fragment;
+                            FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
 
+                              switch (position) {
+                                default:
                                 case 1:
-                                    Intent q = new Intent(MainActivity.this, Messages.class);
-                                    startActivity(q);
+                                    fragment = new ScreenOne();
+
                                     break;
                                 case 2:
-                                    Intent w = new Intent(MainActivity.this, Friends.class);
-                                    startActivity(w);
+                                    fragment = new ScreenTwo();
                                     break;
                                 case 3:
-                                    Intent e = new Intent(MainActivity.this, Settings.class);
-                                    startActivity(e);
+                                    fragment = new ScreenThree();
                                     break;
                                 case 4:
-                                    Intent r = new Intent(MainActivity.this, Settings.class);
-                                    startActivity(r);
+                                    fragment = new ScreenOne();
                                     break;
                                 case 5:
-                                    Intent t = new Intent(MainActivity.this, Settings.class);
-                                    startActivity(t);
+                                    fragment = new ScreenOne();
+                                    break;
+                            }
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.content_frame, fragment)
+                                    .commit();*/
+
+                            Fragment fragment;
+                            switch (position) {
+                                default:
+                                case 1:
+                                    fragment = new ScreenOne();
+                                    break;
+                                case 2:
+                                    fragment = new ScreenTwo();
+                                    break;
+                                case 3:
+                                    Intent settings = new Intent(MainActivity.this, Settings.class);
+                                    startActivity(settings);
+                                    break;
+                                case 4:
+                                    fragment = new ScreenThree();
                                     break;
 
-
                             }
-
                         }
+
                     }
+
                 })
 
 

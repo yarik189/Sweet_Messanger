@@ -42,7 +42,36 @@
             </Preference>
 
         </PreferenceScreen>
+        <PreferenceScreen
+            android:title="Ярослав Васильченко"
+            android:summary="Кодер">
+            <Preference
+                android:title="Вконтакте">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://vk.com/yarikvasilcenko">
+                </intent>
+            </Preference>
+
+        </PreferenceScreen>
+
     </PreferenceScreen>
+
+    <PreferenceScreen
+        android:title="Благодарности">
+        <PreferenceScreen
+            android:title="Женя Мацнев"
+            android:summary="Графика">
+            <Preference
+                android:title="Вконтакте">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://vk.com/id___777___cross">
+                </intent>
+            </Preference>
+
+        </PreferenceScreen>
+        </PreferenceScreen>
 
 
 
@@ -50,7 +79,7 @@
         android:title="О сборке"/>
     <Preference
         android:title="Версия"
-        android:summary="2.0.8(dev)">
+        android:summary="2.0.9(dev)">
     </Preference>
     <Preference
         android:title="Дата сборки"
