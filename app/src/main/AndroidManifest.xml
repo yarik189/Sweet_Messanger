@@ -31,7 +31,7 @@
         </activity>
 <activity android:name=".Chaing"
     android:label="Список изменений"
-    android:theme="@style/Theme.AppCompat.Dialog">
+    android:theme="@style/Chaing">
 
     </activity>
 <activity android:name=".Settings"

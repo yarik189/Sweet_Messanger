@@ -14,4 +14,12 @@
 
     </style>
 
+    <style name="Chaing" parent="Base.Theme.AppCompat.Dialog">
+<item name="android:background">#ffff</item>
+        <item name="android:textColor">#ff29</item>
+        <item name="colorPrimary">#ff3f51b5</item>
+
+    </style>
+
+
 </resources>

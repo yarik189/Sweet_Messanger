@@ -1,6 +1,7 @@
 package kanefron5.com.sweetmessanger;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -12,4 +13,9 @@ public class Chaing extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chaing);
     }
+   public void onBackPressed(){
+       Intent back = new Intent(this, MainActivity.class);
+       startActivity(back);
+   }
+
 }
