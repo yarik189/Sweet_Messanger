@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.Toast;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -67,57 +66,35 @@ public class MainActivity extends ActionBarActivity {
                         if (drawerItem instanceof Nameable) {
 
 
-                            /** Fragment fragment;
+                           Fragment fragment;
                             FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
 
                               switch (position) {
                                 default:
+                                  case 0:
+                                      fragment = new Mes();
+                                      break;
                                 case 1:
-                                    fragment = new ScreenOne();
+                                    fragment = new Fri();
 
                                     break;
                                 case 2:
-                                    fragment = new ScreenTwo();
+                                    fragment = new Fri();
                                     break;
                                 case 3:
-                                    fragment = new ScreenThree();
+                                    fragment = new Set();
                                     break;
                                 case 4:
-                                    fragment = new ScreenOne();
+                                    fragment = new TalkBack();
                                     break;
-                                case 5:
-                                    fragment = new ScreenOne();
-                                    break;
+
                             }
                             fragmentManager.beginTransaction()
                                     .replace(R.id.content_frame, fragment)
-                                    .commit();*/
-
-                            Fragment fragment;
-                            switch (position) {
-                                default:
-                                case 1:
-                                    fragment = new ScreenOne();
-                                    break;
-                                case 2:
-                                    fragment = new ScreenTwo();
-                                    break;
-                                case 3:
-                                    Intent settings = new Intent(MainActivity.this, Settings.class);
-                                    startActivity(settings);
-                                    break;
-                                case 4:
-                                    fragment = new ScreenThree();
-                                    break;
-
+                                    .commit();
                             }
                         }
-
-                    }
-
                 })
-
-
                 .build();
     }
 

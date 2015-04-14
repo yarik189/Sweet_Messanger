@@ -3,20 +3,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        android:paddingTop="@dimen/tool_bar_top_padding"
-        android:transitionName="actionBar" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Не готово"
+        android:text="Друзья"
         android:id="@+id/textView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

@@ -1,7 +1,9 @@
 package kanefron5.com.sweetmessanger;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +11,26 @@ import android.view.ViewGroup;
 /**
  * Created by Роман on 14.04.2015.
  */
-class ScreenOne extends Fragment {
 
-    public ScreenOne() {
+class Mes extends Fragment {
+
+    public Mes() {
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.dialogs, container,
+                false);
+
+        return rootView;
+    }
+
+}
+class Fri extends Fragment {
+
+    public Fri() {
     }
 
     @Override
@@ -25,16 +44,17 @@ class ScreenOne extends Fragment {
     }
 
 }
-class ScreenTwo extends Fragment {
 
-    public ScreenTwo() {
+class Set extends Fragment {
+
+    public Set() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.two, container,
+        View rootView = inflater.inflate(R.layout.set, container,
                 false);
 
         return rootView;
@@ -42,19 +62,22 @@ class ScreenTwo extends Fragment {
 
 }
 
-class ScreenThree extends Fragment {
+class TalkBack extends Fragment {
 
-    public ScreenThree() {
+    public TalkBack() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.chaing, container,
+        View rootView = inflater.inflate(R.layout.talkback, container,
                 false);
 
         return rootView;
     }
 
 }
+
+
+
