@@ -67,6 +67,7 @@ public class MainActivity extends ActionBarActivity {
 
 
                             Fragment fragment;
+
                             FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
 
                             switch (position) {

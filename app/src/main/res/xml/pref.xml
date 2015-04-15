@@ -83,7 +83,7 @@
     </Preference>
     <Preference
         android:title="Дата сборки"
-        android:summary="14.04.2015 20-25(kanefron5)">
+        android:summary="15.04.2015 15-20(kanefron5)">
     </Preference>
     <PreferenceCategory
         android:title="Для разработчиков"/>

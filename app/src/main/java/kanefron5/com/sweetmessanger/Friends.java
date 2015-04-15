@@ -60,7 +60,7 @@ import java.util.List;
  */
 public class Friends extends ListActivity {
 
-    private static final String VK_APP_ID = "4520250";
+    private static final String VK_APP_ID = "4856309";
 
     private final VKSdkListener sdkListener = new VKSdkListener() {
 
@@ -111,7 +111,7 @@ public class Friends extends ListActivity {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.two);
+        setContentView(R.layout.friends);
 
 
         listAdapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_2, android.R.id.text1, users) {
@@ -143,7 +143,7 @@ public class Friends extends ListActivity {
 
         VKUIHelper.onCreate(this);
 
-        loginButton = (Button) findViewById(R.id.login_button);
+        loginButton = (Button) findViewById(R.id.qwer);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

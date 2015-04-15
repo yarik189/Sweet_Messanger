@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 /**
  * Created by Роман on 14.04.2015.
@@ -65,6 +66,7 @@ class Set extends Fragment {
 class TalkBack extends Fragment {
 
     public TalkBack() {
+
     }
 
     @Override
@@ -75,7 +77,9 @@ class TalkBack extends Fragment {
                 false);
 
         return rootView;
+
     }
+
 
 }
 

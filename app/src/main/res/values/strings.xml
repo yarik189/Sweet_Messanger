@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sweet Messanger</string>
+    <string name="app_name">Sweet Messenger</string>
 
     <string name="hello_world">Hello world!</string>
     <string-array name="entries">
