@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
                         new PrimaryDrawerItem().withName(R.string.mes),
                         new PrimaryDrawerItem().withName(R.string.friends),
                         new SectionDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.action_settings),
+                        new SecondaryDrawerItem().withName(R.string.settings),
                         new SecondaryDrawerItem().withName(R.string.contact)
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {

@@ -5,11 +5,11 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "kanefron5.com.sweetmessanger"
+        applicationId "com.kanefron5.vktest"
         minSdkVersion 19
         targetSdkVersion 22
         versionCode 9
-        versionName "2.1(dev)"
+        versionName "2.1.5(dev)"
     }
     buildTypes {
         release {
@@ -25,4 +25,5 @@ dependencies {
     compile('com.mikepenz.materialdrawer:library:2.7.7@aar') {
         transitive = true
     }
+    compile 'com.vk:androidsdk:+'
 }
