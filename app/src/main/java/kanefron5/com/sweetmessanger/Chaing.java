@@ -13,9 +13,4 @@ public class Chaing extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chaing);
     }
-   public void onBackPressed(){
-       Intent back = new Intent(this, MainActivity.class);
-       startActivity(back);
-   }
-
 }
