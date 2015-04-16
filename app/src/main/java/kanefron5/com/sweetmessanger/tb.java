@@ -17,7 +17,7 @@ public class tb extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         mWebView.setWebViewClient(new HelloWebViewClient());
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.talkback);
 
         mWebView = (WebView) findViewById(R.id.webview);
         // включаем поддержку JavaScript

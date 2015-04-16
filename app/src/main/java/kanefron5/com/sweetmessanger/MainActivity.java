@@ -2,17 +2,28 @@ package kanefron5.com.sweetmessanger;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -20,14 +31,64 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
+import java.util.ResourceBundle;
+
 public class MainActivity extends ActionBarActivity {
+    private static final int NOTIFY_ID = 101;
 
     private Drawer.Result drawerResult = null;
+    private android.support.v7.widget.Toolbar mRelativeLayout;
+
+
+    public void onRedButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.redColor));
+    }
+    public void onIndigoButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.indigo));
+
+    }
+    public void onGreenButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.greenColor));
+    }
+    public void onBlueButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.blueColor));
+    }
+    public void onNotClick(View view){
+        Context context = getApplicationContext();
+        Intent not = new Intent(context, Notify.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, not, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        Resources res = context.getResources();
+        Notification.Builder builder = new Notification.Builder(context);
+        builder.setContentIntent(contentIntent)
+        .setSmallIcon(R.mipmap.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(res, R.mipmap.ic_launcher))
+                .setTicker("Тестовое уведомление")
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(true)
+                .setContentTitle("Тест")
+                .setDefaults(Notification.DEFAULT_SOUND).setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_VIBRATE)
+                .setDefaults(Notification.COLOR_DEFAULT)
+
+                .setContentText("Тестовое уведомление, показывающие, что кодер данного приложения - Роман " +
+                        " Заболотских - прям охереть какой четки программист, все понили дыа??!!");
+                Notification notification = builder.build();
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(NOTIFY_ID, notification);
+        long[] vibro = new long[] {1000, 1000};
+        notification.vibrate = vibro;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mRelativeLayout = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar);
 
         // Инициализируем Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -45,7 +106,9 @@ public class MainActivity extends ActionBarActivity {
                         new PrimaryDrawerItem().withName(R.string.friends),
                         new SectionDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.settings),
-                        new SecondaryDrawerItem().withName(R.string.contact)
+                        new SecondaryDrawerItem().withName(R.string.contact),
+                        new SecondaryDrawerItem().withName("Цвет")
+
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
                     @Override
@@ -87,6 +150,9 @@ public class MainActivity extends ActionBarActivity {
                                     break;
                                 case 4:
                                     fragment = new TalkBack();
+                                    break;
+                                case 5:
+                                    fragment = new Color();
                                     break;
 
                             }

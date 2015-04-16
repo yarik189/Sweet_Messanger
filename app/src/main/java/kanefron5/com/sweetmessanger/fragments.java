@@ -82,6 +82,25 @@ class TalkBack extends Fragment {
 
 
 }
+class Color extends Fragment {
+
+    public Color() {
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.color, container,
+                false);
+
+        return rootView;
+
+    }
+
+
+}
 
 
 

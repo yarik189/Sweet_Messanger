@@ -79,7 +79,8 @@
         android:title="О сборке"/>
     <Preference
         android:title="Версия"
-        android:summary="2.1(dev)">
+        android:summary="2.1(dev)"
+        android:key="version">
     </Preference>
     <Preference
         android:title="Дата сборки"
