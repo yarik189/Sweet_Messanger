@@ -39,7 +39,10 @@
 
         </activity>
 
+<activity android:name="kanefron5.com.sweetmessenger.Settings">
 
+
+</activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

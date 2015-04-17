@@ -1,7 +1,10 @@
 package kanefron5.com.sweetmessenger;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
 import kanefron5.com.sweetmessanger.R;
@@ -17,18 +20,18 @@ public class Settings extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref);
 
-          /**  Preference version = (Preference) findPreference("Версия");
+          /** Preference version = (Preference) findPreference("Версия");
         version
                 .setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     public boolean onPreferenceClick(Preference p) {
-                        Intent i = new Intent(this, MainActivity.class);
+                        Intent i = new Intent(Settings.this, MainActivity.class);
                         startActivity(i);
 
                         return true;
                     }
 
-                });
-           */
+                }); */
+
     }
 
 

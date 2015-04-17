@@ -88,6 +88,13 @@ public class MainActivity extends ActionBarActivity {
     }
 //Конец смены цветов
 
+
+
+    public void Reply(View v) {
+        onStop();
+
+    }
+
     public void onNotClick(View view){
         Context context = getApplicationContext();
         Intent not = new Intent(context, Notify.class);
@@ -106,7 +113,7 @@ public class MainActivity extends ActionBarActivity {
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setDefaults(Notification.COLOR_DEFAULT)
 
-                .setContentText("Тестовое уведомление, показывающие, что кодер данного приложения - Роман " +
+                .setContentText("Тестовое уведомление, показывающее, что кодер данного приложения - Роман " +
                         " Заболотских - прям охереть какой четки программист, все понили дыа??!!");
                 Notification notification = builder.build();
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

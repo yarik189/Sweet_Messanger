@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test_notify"
+        android:id="@+id/button"
+
+        android:onClick="onNotClick"
+        android:longClickable="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
+
+<RadioGroup android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/radioGroup"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/red"
+        android:id="@+id/radioButton"
+        android:layout_marginTop="134dp"
+        android:checked="false"
+        android:onClick="onRedButtonClick"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/radioButton7"
+        android:nestedScrollingEnabled="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/green"
+        android:id="@+id/radioButton2"
+        android:checked="false"
+        android:onClick="onGreenButtonClick"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignStart="@+id/radioButton" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/indigo"
+        android:id="@+id/radioButton3"
+        android:checked="true"
+        android:onClick="onIndigoButtonClick"
+        android:layout_below="@+id/radioButton2"
+        android:layout_alignStart="@+id/radioButton2"
+        android:layout_alignEnd="@+id/radioButton2" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blue"
+        android:id="@+id/radioButton4"
+        android:layout_below="@+id/radioButton3"
+        android:checked="false"
+        android:onClick="onBlueButtonClick"
+        android:layout_alignEnd="@+id/radioButton3"
+        android:layout_alignStart="@+id/radioButton3" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Teal"
+        android:id="@+id/radioButton5"
+        android:checked="false"
+        android:layout_below="@+id/radioButton4"
+        android:layout_alignStart="@+id/radioButton4"
+        android:onClick="oTealButtonClick" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/purple"
+        android:id="@+id/radioButton6"
+        android:checked="false"
+        android:onClick="onPurpleButtonClick"
+        android:layout_below="@+id/radioButton5"
+        android:layout_centerHorizontal="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pink"
+        android:id="@+id/radioButton7"
+        android:layout_below="@+id/radioButton6"
+        android:layout_alignStart="@+id/radioButton6"
+        android:checked="false"
+        android:onClick="onPinkButtonClick" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lime"
+        android:id="@+id/radioButton8"
+        android:layout_below="@+id/radioButton7"
+        android:layout_alignStart="@+id/radioButton7"
+        android:checked="false"
+        android:onClick="onLimeButtonClick" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yellow"
+        android:id="@+id/radioButton9"
+        android:layout_below="@+id/radioButton8"
+        android:layout_alignStart="@+id/radioButton8"
+        android:checked="false"
+        android:onClick="onYellowButtonClick" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deep_Orange"
+        android:id="@+id/radioButton10"
+        android:layout_below="@+id/radioButton9"
+        android:layout_alignStart="@+id/radioButton9"
+        android:checked="false"
+        android:onClick="onDeep_OrangeButtonClick" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brown"
+        android:id="@+id/radioButton11"
+        android:layout_below="@+id/radioButton10"
+        android:layout_alignStart="@+id/radioButton10"
+        android:checked="false"
+        android:onClick="onBrownButtonClick" />
+</RadioGroup>
+
+
+
+
+</RelativeLayout>
