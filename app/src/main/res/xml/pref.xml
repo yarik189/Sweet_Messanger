@@ -79,12 +79,12 @@
         android:title="О сборке"/>
     <Preference
         android:title="Версия"
-        android:summary="2.1(dev)"
+        android:summary="2.1.9.2(dev)"
         android:key="version">
     </Preference>
     <Preference
         android:title="Дата сборки"
-        android:summary="15.04.2015 15-20(kanefron5)">
+        android:summary="18.04.2015 03-22(kanefron5)">
     </Preference>
     <PreferenceCategory
         android:title="Для разработчиков"/>

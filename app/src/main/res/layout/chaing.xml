@@ -3,11 +3,18 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chainglog"
-        android:id="@+id/chaing"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#9d000000" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="577dp"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chainglog"
+            android:id="@+id/textView5"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#9d000000" />
+    </ScrollView>
 </LinearLayout>

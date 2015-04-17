@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.kanefron5.vktest"
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 22
         versionCode 9
-        versionName "2.1.5(dev)"
+        versionName "2.1.9.2(dev)"
     }
     buildTypes {
         release {

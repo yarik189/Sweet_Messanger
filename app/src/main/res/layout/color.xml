@@ -5,11 +5,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="тест Уведомления"
+        android:text="@string/test_notify"
         android:id="@+id/button"
+
         android:onClick="onNotClick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:longClickable="true" />
 
 
 <RadioGroup android:layout_width="wrap_content"
@@ -20,18 +22,19 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Красный"
+        android:text="@string/red"
         android:id="@+id/radioButton"
         android:layout_marginTop="134dp"
         android:checked="false"
         android:onClick="onRedButtonClick"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/radioButton7" />
+        android:layout_alignEnd="@+id/radioButton7"
+        android:nestedScrollingEnabled="false" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Зеленый"
+        android:text="@string/green"
         android:id="@+id/radioButton2"
         android:checked="false"
         android:onClick="onGreenButtonClick"
@@ -41,7 +44,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Индиго"
+        android:text="@string/indigo"
         android:id="@+id/radioButton3"
         android:checked="true"
         android:onClick="onIndigoButtonClick"
@@ -52,7 +55,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Синий"
+        android:text="@string/blue"
         android:id="@+id/radioButton4"
         android:layout_below="@+id/radioButton3"
         android:checked="false"
@@ -63,7 +66,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Бирюзовый"
+        android:text="@string/Teal"
         android:id="@+id/radioButton5"
         android:checked="false"
         android:layout_below="@+id/radioButton4"
@@ -73,7 +76,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Фиолетовый"
+        android:text="@string/purple"
         android:id="@+id/radioButton6"
         android:checked="false"
         android:onClick="onPurpleButtonClick"
@@ -83,7 +86,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Розовый"
+        android:text="@string/pink"
         android:id="@+id/radioButton7"
         android:layout_below="@+id/radioButton6"
         android:layout_alignStart="@+id/radioButton6"
@@ -93,7 +96,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Лаймовый"
+        android:text="@string/lime"
         android:id="@+id/radioButton8"
         android:layout_below="@+id/radioButton7"
         android:layout_alignStart="@+id/radioButton7"
@@ -103,7 +106,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Желтый"
+        android:text="@string/yellow"
         android:id="@+id/radioButton9"
         android:layout_below="@+id/radioButton8"
         android:layout_alignStart="@+id/radioButton8"
@@ -113,7 +116,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Оранжевый"
+        android:text="@string/deep_Orange"
         android:id="@+id/radioButton10"
         android:layout_below="@+id/radioButton9"
         android:layout_alignStart="@+id/radioButton9"
@@ -123,7 +126,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Коричневый"
+        android:text="@string/brown"
         android:id="@+id/radioButton11"
         android:layout_below="@+id/radioButton10"
         android:layout_alignStart="@+id/radioButton10"

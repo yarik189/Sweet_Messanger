@@ -13,10 +13,30 @@
     <item>2</item>
     <item>3</item>
     </string-array>
+
+    <string name="red">Красный</string>
+    <string name="green">Зеленый</string>
+    <string name="indigo">Индиго</string>
+    <string name="Teal">Бирюзовый</string>
+    <string name="purple">Фиолетовый</string>
+    <string name="pink">Розовый</string>
+    <string name="lime">Лаймовый</string>
+    <string name="yellow">Желтый</string>
+    <string name="deep_Orange">Оранжевый</string>
+    <string name="brown">Коричневый</string>
+    <string name="blue">Синий</string>
+
+    <string name="test_notify">Тест уведомления</string>
+
+
+
+
+
+
     <string name="action_settings">Список изменений</string>
     <string name="settings">Настройки</string>
     <string name="mes">Сообщения</string>
     <string name="friends">Друзья</string>
     <string name="contact">Обратная связь</string>
-    <string name="chainglog"><b>*2.1.5</b>\nВход в аккаунт!\n<b>*2.1</b>\nОбновлена библиотека\nКостяк полностью готов\nПереход не по Intent, а через Fragment\nМелкие правки\n<b>*2.0.9(dev)</b>\nИсправления в чейнджлоге\nУлучшения стабильности\n<b>*2.0</b>\nПолный редесигн приложения\n<b>*1.6</b>\nПрозрачность статусбара\nПланка поднята до Android 4.4\n<b>*1.2</b>\nПервая попытка подключить сообщения\n<b>*1.1</b>\nДобавление настроек\n<b>*1.0</b>\nМеню навигации\nУлучшена работоспособность\nMinSdk 14\nЕще что-то\n<b>*0.6</b>\nСоздание этого окна\n<b>*0.5.9.1</b>\nБагфиксы\n<b>*0.1</b>\nПервый релиз</string>
+    <string name="chainglog"><b>*2.1.9.2</b>\nПочинил чейнджлог\n<b>*2.1.9.1</b>\nВесь текст, ну или почти весь, теперь в строковых ресурсах, а не в лэйаутах\nСломал чейнджлог\n<b>*2.1.9</b>\nСмена цвета\nУведомления\nminSdkVersion 17\nЧто-то еще\n<b>*2.1.5</b>\nВход в аккаунт!\n<b>*2.1</b>\nОбновлена библиотека\nКостяк полностью готов\nПереход не по Intent, а через Fragment\nМелкие правки\n<b>*2.0.9(dev)</b>\nИсправления в чейнджлоге\nУлучшения стабильности\n<b>*2.0</b>\nПолный редесигн приложения\n<b>*1.6</b>\nПрозрачность статусбара\nПланка поднята до Android 4.4\n<b>*1.2</b>\nПервая попытка подключить сообщения\n<b>*1.1</b>\nДобавление настроек\n<b>*1.0</b>\nМеню навигации\nУлучшена работоспособность\nMinSdk 14\nЕще что-то\n<b>*0.6</b>\nСоздание этого окна\n<b>*0.5.9.1</b>\nБагфиксы\n<b>*0.1</b>\nПервый релиз</string>
 </resources>

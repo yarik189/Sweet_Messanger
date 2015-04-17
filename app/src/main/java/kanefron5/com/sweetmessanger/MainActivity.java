@@ -21,6 +21,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,11 +41,14 @@ public class MainActivity extends ActionBarActivity {
     private Drawer.Result drawerResult = null;
     private android.support.v7.widget.Toolbar mRelativeLayout;
 
+
+
 //Смена цветов
     public void onRedButtonClick(View view) {
 
         mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.redColor));
     }
+
     public void onIndigoButtonClick(View view) {
 
         mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.indigo));
@@ -122,6 +127,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         mRelativeLayout = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar);
 
+
         // Инициализируем Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -139,7 +145,7 @@ public class MainActivity extends ActionBarActivity {
                         new SectionDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.settings),
                         new SecondaryDrawerItem().withName(R.string.contact),
-                        new SecondaryDrawerItem().withName("Цвет")
+                        new SecondaryDrawerItem().withName("Визуализация")
 
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
@@ -190,6 +196,7 @@ public class MainActivity extends ActionBarActivity {
                             }
                             fragmentManager.beginTransaction()
                                     .replace(R.id.content_frame, fragment)
+
                                     .commit();
                         }
                     }
