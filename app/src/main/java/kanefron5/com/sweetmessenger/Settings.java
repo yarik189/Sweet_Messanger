@@ -4,6 +4,8 @@ package kanefron5.com.sweetmessenger;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
+import kanefron5.com.sweetmessanger.R;
+
 /**
  * Created by Роман on 13.04.2015.
  */

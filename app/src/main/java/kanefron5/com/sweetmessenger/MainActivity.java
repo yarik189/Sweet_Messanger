@@ -27,6 +27,8 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
+import kanefron5.com.sweetmessanger.R;
+
 public class MainActivity extends ActionBarActivity {
     private static final int NOTIFY_ID = 101;
 

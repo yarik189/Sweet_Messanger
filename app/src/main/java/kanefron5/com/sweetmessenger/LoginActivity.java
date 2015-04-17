@@ -15,6 +15,8 @@ import com.vk.sdk.VKUIHelper;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKRequest;
 
+import kanefron5.com.sweetmessanger.R;
+
 /**
  * Created by Роман on 15.04.2015.
  */
