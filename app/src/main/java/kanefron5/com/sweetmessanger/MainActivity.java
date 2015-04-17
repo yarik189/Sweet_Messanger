@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
     private Drawer.Result drawerResult = null;
     private android.support.v7.widget.Toolbar mRelativeLayout;
 
-
+//Смена цветов
     public void onRedButtonClick(View view) {
 
         mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.redColor));
@@ -57,6 +57,38 @@ public class MainActivity extends ActionBarActivity {
 
         mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.blueColor));
     }
+    public void oTealButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Teal));
+    }
+    public void onPurpleButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Purple));
+    }
+    public void onPinkButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Pink));
+    }
+    public void onLimeButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Lime));
+    }
+    public void onYellowButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Yellow));
+
+    }
+    public void onDeep_OrangeButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Deep_Orange));
+    }
+    public void onBrownButtonClick(View view) {
+
+        mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.Brown));
+
+    }
+//Конец смены цветов
+
     public void onNotClick(View view){
         Context context = getApplicationContext();
         Intent not = new Intent(context, Notify.class);
@@ -80,7 +112,7 @@ public class MainActivity extends ActionBarActivity {
                 Notification notification = builder.build();
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFY_ID, notification);
-        long[] vibro = new long[] {1000, 1000};
+        long[] vibro = new long[] {1000, 500, 1000};
         notification.vibrate = vibro;
     }
 
