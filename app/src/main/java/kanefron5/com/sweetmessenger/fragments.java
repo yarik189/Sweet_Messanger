@@ -1,4 +1,4 @@
-package kanefron5.com.sweetmessanger;
+package kanefron5.com.sweetmessenger;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 
 /**
  * Created by Роман on 14.04.2015.

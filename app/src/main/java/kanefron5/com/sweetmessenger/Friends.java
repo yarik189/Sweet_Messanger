@@ -1,11 +1,9 @@
-package kanefron5.com.sweetmessanger;
+package kanefron5.com.sweetmessenger;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,29 +23,7 @@ import com.vk.sdk.api.VKResponse;
 import com.vk.sdk.api.model.VKApiUserFull;
 import com.vk.sdk.api.model.VKUsersArray;
 import android.app.ListActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
-
-import com.vk.sdk.VKAccessToken;
-import com.vk.sdk.VKScope;
-import com.vk.sdk.VKSdk;
-import com.vk.sdk.VKSdkListener;
-import com.vk.sdk.VKUIHelper;
-import com.vk.sdk.api.VKApi;
-import com.vk.sdk.api.VKApiConst;
-import com.vk.sdk.api.VKError;
-import com.vk.sdk.api.VKParameters;
-import com.vk.sdk.api.VKRequest;
-import com.vk.sdk.api.VKResponse;
-import com.vk.sdk.api.model.VKApiUserFull;
-import com.vk.sdk.api.model.VKUsersArray;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;

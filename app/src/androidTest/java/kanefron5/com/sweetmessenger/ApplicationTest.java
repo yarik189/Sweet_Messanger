@@ -1,4 +1,4 @@
-package kanefron5.com.sweetmessanger;
+package kanefron5.com.sweetmessenger;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,7 +1,6 @@
-package kanefron5.com.sweetmessanger;
+package kanefron5.com.sweetmessenger;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +14,6 @@ import com.vk.sdk.VKSdkListener;
 import com.vk.sdk.VKUIHelper;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKRequest;
-import com.vk.sdk.dialogs.VKCaptchaDialog;
 
 /**
  * Created by Роман on 15.04.2015.

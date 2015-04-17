@@ -1,4 +1,4 @@
-package kanefron5.com.sweetmessanger;
+package kanefron5.com.sweetmessenger;
 
 /**
  * Created by Роман on 15.04.2015.

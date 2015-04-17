@@ -1,9 +1,7 @@
-package kanefron5.com.sweetmessanger;
+package kanefron5.com.sweetmessenger;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
