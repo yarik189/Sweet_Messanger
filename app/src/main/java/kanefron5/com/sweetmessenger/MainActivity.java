@@ -7,10 +7,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.ColorRes;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -34,13 +37,24 @@ public class MainActivity extends ActionBarActivity {
 
     private Drawer.Result drawerResult = null;
     private android.support.v7.widget.Toolbar mRelativeLayout;
+    SharedPreferences colors;
+    final String SAVED_TEXT = "colors";
 
+    void saveColor() {
+        colors = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = colors.edit();
+        ed.putString(SAVED_TEXT, "Нилазь сюда");
+        ed.commit();
+        //Toast.makeText(this, "Color saved", Toast.LENGTH_SHORT).show();
+    }
 
 
 //Смена цветов
     public void onRedButtonClick(View view) {
 
         mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.redColor));
+        saveColor();
+
     }
 
     public void onIndigoButtonClick(View view) {
