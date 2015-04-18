@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
@@ -11,9 +12,11 @@
         android:title="О разработчиках"/>
     <PreferenceScreen
         android:title="Узнайте разработчиков">
-        <PreferenceScreen
-            android:title="Роман Заболотских"
+        <PreferenceScreen android:title="Роман Заболотских"
             android:summary="Кодер">
+
+
+
             <Preference
                 android:title="Вконтакте">
                 <intent
@@ -84,7 +87,7 @@
     </Preference>
     <Preference
         android:title="Дата сборки"
-        android:summary="18.04.2015 22-02(kanefron5)">
+        android:summary="18.04.2015 22-59(kanefron5)">
     </Preference>
     <PreferenceCategory
         android:title="Для разработчиков"/>
@@ -110,4 +113,6 @@
             android:data="error">
         </intent>
     </Preference>
+
+
 </PreferenceScreen>

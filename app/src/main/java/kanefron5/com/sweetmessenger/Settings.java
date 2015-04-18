@@ -21,21 +21,6 @@ public class Settings extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref);
 
-        /** Preference version = (Preference) findPreference("Версия");
-         version
-         .setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-         public boolean onPreferenceClick(Preference p) {
-         Intent i = new Intent(Settings.this, MainActivity.class);
-         startActivity(i);
-
-         return true;
-         }
-
-         }); */
-
-
-
-
     }
 }
 
