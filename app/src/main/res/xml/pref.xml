@@ -34,13 +34,13 @@
         </PreferenceScreen>
 
         <PreferenceScreen
-            android:title="Сергей Романов"
-            android:summary="Десигнер">
+            android:title="Дима Голубенко"
+            android:summary="Кодер">
             <Preference
                 android:title="Вконтакте">
                 <intent
                     android:action="android.intent.action.VIEW"
-                    android:data="http://vk.com/sergo_rus24">
+                    android:data="http://vk.com/aparat555">
                 </intent>
             </Preference>
 
@@ -53,6 +53,19 @@
                 <intent
                     android:action="android.intent.action.VIEW"
                     android:data="http://vk.com/yarikvasilcenko">
+                </intent>
+            </Preference>
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:title="Игорь Морозкин"
+            android:summary="Кодер">
+            <Preference
+                android:title="Вконтакте">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://vk.com/igorek100">
                 </intent>
             </Preference>
 
@@ -82,12 +95,12 @@
         android:title="О сборке"/>
     <Preference
         android:title="Версия"
-        android:summary="2.1.9.2(dev)"
+        android:summary="2.1.9.2.8(dev)"
         android:key="version">
     </Preference>
     <Preference
         android:title="Дата сборки"
-        android:summary="18.04.2015 22-59(kanefron5)">
+        android:summary="20.04.2015 15-38(kanefron5)">
     </Preference>
     <PreferenceCategory
         android:title="Для разработчиков"/>

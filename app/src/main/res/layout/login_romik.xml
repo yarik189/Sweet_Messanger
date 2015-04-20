@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#4c87cd">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:title="Авторизация"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5fa7f1"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="@dimen/tool_bar_top_padding"
+        android:transitionName="actionBar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_marginTop="69dp"
+        android:src="@drawable/ic"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:background="#00000000"
+        android:onClick="onBtnClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вход"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/imageButton"
+        android:layout_marginBottom="127dp"
+        android:layout_alignStart="@+id/imageButton"
+        android:background="#fffcfaff"
+        android:onClick="Login" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Регистрация"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="62dp"
+        android:layout_alignStart="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
+        android:background="#5995f0" />
+
+</RelativeLayout>

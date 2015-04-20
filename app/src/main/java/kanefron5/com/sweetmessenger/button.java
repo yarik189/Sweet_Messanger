@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import kanefron5.com.sweetmessanger.R;
+
 
 /**
  * Created by Роман on 16.04.2015.

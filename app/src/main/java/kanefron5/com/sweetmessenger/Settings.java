@@ -8,7 +8,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.view.View;
 
-import kanefron5.com.sweetmessanger.R;
+
 
 /**
  * Created by Роман on 13.04.2015.

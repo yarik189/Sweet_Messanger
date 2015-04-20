@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import kanefron5.com.sweetmessanger.R;
+
 
 /**
  * Created by Роман on 15.04.2015.

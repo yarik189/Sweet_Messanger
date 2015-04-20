@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kanefron5.com.sweetmessanger" >
+    package="kanefron5.com.sweetmessenger" >
 
     <application
         android:allowBackup="true"
@@ -9,22 +9,22 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="kanefron5.com.sweetmessenger.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
         </activity>
 
-<activity android:name="kanefron5.com.sweetmessenger.Chaing"
+<activity android:name=".Chaing"
     android:label="Список изменений"
         android:theme="@style/Chaing">
     </activity>
 
-        <activity android:name="kanefron5.com.sweetmessenger.Notify"
+        <activity android:name=".Notify"
             android:label="Список изменений"
             android:theme="@style/Chaing">
         </activity>
 
 
-        <activity android:name="kanefron5.com.sweetmessenger.LoginActivity"
+        <activity android:name=".LoginActivity"
             android:label="@string/app_name"
             android:noHistory="true">
             <intent-filter>
@@ -34,11 +34,29 @@
             </intent-filter>
 
         </activity>
-        <activity android:name="kanefron5.com.sweetmessenger.Friends"
+        <activity android:name=".Friends"
             android:label="@string/app_name">
 
         </activity>
+<activity android:name=".Start"
+    android:label="Вход">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+        <activity android:name=".TwoLog"
+
+            android:label="@string/app_name">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
     </application>
 

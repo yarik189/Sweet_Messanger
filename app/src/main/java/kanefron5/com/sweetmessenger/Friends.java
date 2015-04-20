@@ -31,7 +31,7 @@ import org.joda.time.format.DateTimeFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import kanefron5.com.sweetmessanger.R;
+
 
 /**
  * Created by Роман on 15.04.2015.
