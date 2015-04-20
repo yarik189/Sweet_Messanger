@@ -2,6 +2,8 @@ package kanefron5.com.sweetmessenger;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.content.Intent;
 
 
 
