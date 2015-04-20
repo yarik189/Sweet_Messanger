@@ -16,4 +16,8 @@ public class TwoLog extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout_sweet);
     }
+    public void LoginTwo(View v){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
 }
