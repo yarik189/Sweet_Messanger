@@ -5,8 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
-
-
+import android.widget.EditText;
 
 
 /**
@@ -14,7 +13,7 @@ import android.content.Intent;
  */
 public class TwoLog extends ActionBarActivity {
     private int x;
-
+    private EditText editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,5 +26,7 @@ public class TwoLog extends ActionBarActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+
+
 
 }

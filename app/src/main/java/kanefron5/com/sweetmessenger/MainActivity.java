@@ -165,7 +165,8 @@ public class MainActivity extends ActionBarActivity {
                         new SectionDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.settings).withIcon(R.drawable.ic_settings),
                         new SecondaryDrawerItem().withName(R.string.contact).withIcon(R.drawable.ic_talkback),
-                        new SecondaryDrawerItem().withName("Визуализация").withIcon(R.drawable.ic_color)
+                        new SecondaryDrawerItem().withName("Визуализация").withIcon(R.drawable.ic_color),
+                        new SecondaryDrawerItem().withName("Пост")
 
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
@@ -194,7 +195,7 @@ public class MainActivity extends ActionBarActivity {
                             switch (position) {
                                 default:
                                 case 0:
-                                    fragment = new Mes();
+                                    startActivity(new Intent(MainActivity.this, SweetDialogsActivity.class));
                                     break;
                                 case 1:
                                     fragment = new Fri();
@@ -211,6 +212,9 @@ public class MainActivity extends ActionBarActivity {
                                     break;
                                 case 5:
                                     fragment = new Color();
+                                    break;
+                                case 6:
+                                    startActivity(new Intent(MainActivity.this, post.class));
                                     break;
 
                             }

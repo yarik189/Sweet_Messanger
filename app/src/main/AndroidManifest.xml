@@ -22,14 +22,13 @@
             android:theme="@style/Chaing">
         </activity>
 
-
-
 <activity android:name=".Friends"
             android:label="@string/app_name">
         </activity>
 
 <activity android:name=".Start"
-    android:label="@string/app_name">
+    android:label="@string/app_name"
+    android:theme="@style/start">
     <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +37,8 @@
 </activity>
 
 <activity android:name=".TwoLog"
-            android:label="Авторизация">
+            android:label="Авторизация"
+          android:theme="@style/start">
         </activity>
 
 <activity android:label="Поддержка" android:name=".Wv">
@@ -51,18 +51,18 @@
             </category>
         </intent-filter>
 </activity>
+
 <activity android:name=".post"
-          android:label="@string/app_name"
-    >
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
+          android:label="@string/app_name">
 </activity>
-        <activity android:name=".LoginActivity"
-                  android:configChanges="keyboardHidden|orientation"
-                  android:label="@string/app_name"
-            />
+
+<activity android:name=".LoginActivity"
+          android:configChanges="keyboardHidden|orientation"
+          android:label="@string/app_name"/>
+
+<activity android:name=".SweetDialogsActivity"
+                  android:label="Диаложки">
+        </activity>
 
 
     </application>
