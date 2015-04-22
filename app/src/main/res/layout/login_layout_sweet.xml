@@ -7,9 +7,10 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-                            android:background="#5fa7f1"
-                            android:title="Авторизация"
-                            android:layout_height="wrap_content"/>
+        android:background="#5fa7f1"
+        android:title="Авторизация"
+        android:id="@+id/start_two"
+        android:layout_height="wrap_content"/>
 
 
     <FrameLayout android:layout_width="match_parent"
@@ -31,7 +32,8 @@
             <EditText android:layout_width="match_parent"
                       android:hint="Пороль"
                       android:textColorHint="@android:color/darker_gray"
-                      android:layout_height="wrap_content"/>
+                      android:layout_height="wrap_content"
+                android:password="true" />
 
         </LinearLayout>
     </FrameLayout>

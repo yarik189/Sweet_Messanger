@@ -5,6 +5,8 @@
     android:adjustViewBounds="true"
     android:orientation="vertical"
     android:scaleType="fitCenter"
-    android:src="@drawable/header">
+    android:src="@drawable/header"
+           android:nestedScrollingEnabled="true">
 
-    </ImageView>
+</ImageView>
+

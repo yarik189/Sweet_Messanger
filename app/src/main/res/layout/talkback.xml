@@ -5,14 +5,64 @@
     android:layout_height="match_parent"
     android:background="#46000000">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout android:layout_width="351dp"
+        android:background="@color/Brown"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true">
+    </LinearLayout>
+    <LinearLayout android:layout_width="351dp"
+        android:background="@color/indigo"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+    </LinearLayout>
+
+    <FrameLayout android:layout_width="match_parent"
+        android:background="@android:color/white"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Поддержка"
-        android:id="@+id/textView7"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout android:layout_width="342dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_height="508dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:weightSum="1">
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/webView"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1.01" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/ab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkindigo"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="@dimen/tool_bar_top_padding"
+        android:transitionName="actionBar"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="40dp" />
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

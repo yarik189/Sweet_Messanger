@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.ColorRes;
@@ -37,6 +38,7 @@ public class MainActivity extends ActionBarActivity {
 
     private Drawer.Result drawerResult = null;
     private android.support.v7.widget.Toolbar mRelativeLayout;
+
     SharedPreferences colors;
     final String SAVED_TEXT = "colors";
 
@@ -53,8 +55,8 @@ public class MainActivity extends ActionBarActivity {
     public void onRedButtonClick(View view) {
 
         mRelativeLayout.setBackgroundColor(getResources().getColor(R.color.redColor));
-        saveColor();
-        //setTheme(R.style.Name);
+
+        setTheme(R.style.Name);
 
     }
 
@@ -144,6 +146,7 @@ public class MainActivity extends ActionBarActivity {
         mRelativeLayout = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar);
 
 
+
         // Инициализируем Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -183,7 +186,7 @@ public class MainActivity extends ActionBarActivity {
                         if (drawerItem instanceof Nameable) {
 
 
-                            Fragment fragment;
+                            Fragment fragment = null;
 
                             FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
 
@@ -203,7 +206,7 @@ public class MainActivity extends ActionBarActivity {
                                     fragment = new Settings();
                                     break;
                                 case 4:
-                                    fragment = new TalkBack();
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.vk.com/im?sel=273646145")));
                                     break;
                                 case 5:
                                     fragment = new Color();

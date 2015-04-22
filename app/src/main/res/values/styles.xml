@@ -23,5 +23,11 @@
 
     </style>
 
+    <style name="Name" parent="Theme.AppCompat.Light.NoActionBar">
 
+        <item name="android:textColor">#ff616161</item>
+        <item name="colorPrimary">@color/redColor</item>
+        <item name="colorPrimaryDark">@color/darkredColor</item>
+
+    </style>
 </resources>
