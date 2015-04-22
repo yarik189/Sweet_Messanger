@@ -85,9 +85,15 @@ public class post extends FragmentActivity {
                 //авторизовались успешно 
                 account.access_token=data.getStringExtra("token");
                 account.user_id=data.getLongExtra("user_id", 0);
+                // Создаем API
+                api = new Api(account.access_token, Constants.API_ID);
                 account.save(post.this);
+                Toast.makeText(this, "Авторизовались успешно...", Toast.LENGTH_LONG).show();
                 api=new Api(account.access_token, Constants.API_ID);
                 showButtons();
+
+
+
             }
         }
     }
