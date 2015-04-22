@@ -35,7 +35,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
         setContentView(R.layout.dialogs);
 
         account.restore(this);
-        account.save(this);
+
 
         // Создаем API, Если есть токен
         if (account.access_token != null) {
