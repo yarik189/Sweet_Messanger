@@ -24,6 +24,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -159,12 +160,12 @@ public class MainActivity extends ActionBarActivity {
                 .withActionBarDrawerToggle(true)
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.mes),
-                        new PrimaryDrawerItem().withName(R.string.friends),
+                        new PrimaryDrawerItem().withName(R.string.mes).withIcon(R.drawable.ic_messages),
+                        new PrimaryDrawerItem().withName(R.string.friends).withIcon(R.drawable.ic_friends),
                         new SectionDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.settings),
-                        new SecondaryDrawerItem().withName(R.string.contact),
-                        new SecondaryDrawerItem().withName("Визуализация")
+                        new SecondaryDrawerItem().withName(R.string.settings).withIcon(R.drawable.ic_settings),
+                        new SecondaryDrawerItem().withName(R.string.contact).withIcon(R.drawable.ic_talkback),
+                        new SecondaryDrawerItem().withName("Визуализация").withIcon(R.drawable.ic_color)
 
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
