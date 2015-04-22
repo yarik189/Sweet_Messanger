@@ -6,20 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class post extends FragmentActivity {
+public class post extends ActionBarActivity {
     
     private final int REQUEST_LOGIN=1;
     
     Button authorizeButton;
     Button logoutButton;
     Button postButton;
+    Button groupbutton;
     EditText messageEditText;
+    EditText wall;
     
     Account account=new Account();
     Api api;
@@ -45,10 +48,12 @@ public class post extends FragmentActivity {
         authorizeButton=(Button)findViewById(R.id.authorize);
         logoutButton=(Button)findViewById(R.id.logout);
         postButton=(Button)findViewById(R.id.post);
+        groupbutton=(Button)findViewById(R.id.group);
         messageEditText=(EditText)findViewById(R.id.message);
         authorizeButton.setOnClickListener(authorizeClick);
         logoutButton.setOnClickListener(logoutClick);
         postButton.setOnClickListener(postClick);
+        groupbutton.setOnClickListener(groupClick);
     }
     
     private OnClickListener authorizeClick=new OnClickListener(){
@@ -69,6 +74,12 @@ public class post extends FragmentActivity {
         @Override
         public void onClick(View v) {
             postToWall();
+        }
+    };
+    private OnClickListener groupClick=new OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            postTolGroup();
         }
     };
     
@@ -97,7 +108,7 @@ public class post extends FragmentActivity {
             }
         }
     }
-    
+
     private void postToWall() {
         //Общение с сервером в отдельном потоке чтобы не блокировать UI поток
         new Thread(){
@@ -105,8 +116,25 @@ public class post extends FragmentActivity {
             public void run(){
                 try {
                     String text=messageEditText.getText().toString();
+
                     api.createWallPost(account.user_id, text, null, null, false, false, false, null, null, null, 0L, null, null);
                     //Показать сообщение в UI потоке 
+                    runOnUiThread(successRunnable);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+    private void postTolGroup() {
+        //Общение с сервером в отдельном потоке чтобы не блокировать UI поток
+        new Thread(){
+            @Override
+            public void run(){
+                try {
+                    String text=messageEditText.getText().toString();
+                    api.createWallPost(-91531577, text, null, null, false, false, false, null, null, null, 0L, null, null);
+                    //Показать сообщение в UI потоке
                     runOnUiThread(successRunnable);
                 } catch (Exception e) {
                     e.printStackTrace();

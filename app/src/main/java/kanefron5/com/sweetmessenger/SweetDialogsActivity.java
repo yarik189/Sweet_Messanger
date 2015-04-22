@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -32,7 +34,7 @@ import java.util.List;
  */
 public class SweetDialogsActivity extends ActionBarActivity {
 
-    Account account=new Account();
+    Account account = new Account();
     Api api;
 
 
@@ -45,20 +47,11 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialogs);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.dab);
+        setSupportActionBar(toolbar);
+        getSupportActionBar();
 
         account.restore(this);
-
-        listAdapter = new ArrayAdapter<SweetDialogsActivity>(this, android.R.layout.simple_list_item_2, android.R.id.text1, messages) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                final SweetDialogsActivity messages = getItem(position);
-
-
-                return view;
-            }
-        };
-
 
 
 
@@ -112,14 +105,13 @@ public class SweetDialogsActivity extends ActionBarActivity {
     }
 
 
-
     private class DialogsAdapter extends BaseAdapter {
 
         Context context;
         ArrayList<DialogsItem> dialogsItems;
 
         public DialogsAdapter(Context context, ArrayList<DialogsItem> dialogsItems) {
-           this.context = context;
+            this.context = context;
             this.dialogsItems = dialogsItems;
         }
 
@@ -152,10 +144,61 @@ public class SweetDialogsActivity extends ActionBarActivity {
             this.fullName = fullName;
             this.body = body;
         }
+
+
+        private class DialogsAdapter extends BaseAdapter {
+
+            Context context;
+            ArrayList<DialogsItem> dialogsItems;
+
+            LayoutInflater inflater; // Он нам нужен, что бы конвертировать разметку в элемент
+
+            public DialogsAdapter(Context context, ArrayList<DialogsItem> dialogsItems) {
+                this.context = context;
+                this.dialogsItems = dialogsItems;
+
+                inflater = (LayoutInflater)
+                        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            }
+
+            @Override
+            public int getCount() {
+// Должен возвращать кол-во элементов
+                return dialogsItems.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+// Должен возвращать элемент по позиции
+                return dialogsItems.get(position);
+            }
+
+            @Override
+            public long getItemId(int position) {
+// Должен возвращать ID, position == id
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = convertView;
+                if (view == null) {
+                    view = inflater.inflate(R.layout.li, parent, false);
+                }
+// Вот тут самое интересное
+// узнаем View по их ID и заполняем данными
+                TextView tvName = (TextView) view.findViewById(R.id.fullName_dialog);
+                tvName.setText(dialogsItems.get(position).fullName);
+
+                TextView tvBody = (TextView) view.findViewById(R.id.tvBody_dialog);
+                tvBody.setText(dialogsItems.get(position).fullName);
+
+
+                return view; // Возвращаем View
+
+            }
+        }
     }
-
-
-
-
-
 }
+

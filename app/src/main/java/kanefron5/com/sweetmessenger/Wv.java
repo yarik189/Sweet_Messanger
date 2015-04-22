@@ -9,7 +9,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 /**
- * Created by Роман on 21.04.2015.
+ * Created by POMAH on 21.04.2015.
  */
 public class Wv extends ActionBarActivity {
 
