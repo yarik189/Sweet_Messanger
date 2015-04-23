@@ -27,4 +27,5 @@ dependencies {
     }
     compile 'com.vk:androidsdk:+'
     compile 'net.danlew:android.joda:2.4.0'
+    compile 'de.hdodenhof:circleimageview:1.2.2'
 }
