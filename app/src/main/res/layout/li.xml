@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:id="@+id/lLayout_dialog"
-              android:paddingLeft="16dp"
-              android:paddingRight="16dp"
-              android:paddingBottom="12dp"
-              android:paddingTop="12dp">
+<LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="45dp"
         android:id="@+id/ivImgAvatar_dialog"
-        android:src="@drawable/ic"
+        android:src="@drawable/ya"
         android:layout_marginRight="16dp"
         android:layout_height="45dp"/>
+
 
     <LinearLayout android:layout_width="wrap_content"
                   android:orientation="vertical"
@@ -47,4 +46,5 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/tvDate_dialog"
         android:layout_height="wrap_content"/>
+
 </LinearLayout>
