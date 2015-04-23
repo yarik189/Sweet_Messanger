@@ -23,9 +23,9 @@ public class Start extends ActionBarActivity {
     }
 public void onBtnClick(View v){
     x++;
-    if (x>5) {
+    if (x==5) {
         x=0;
-        Intent i = new Intent(this, TwoLog.class);
+        Intent i = new Intent(this, easter_egg.class);
         startActivity(i);
          }
 }

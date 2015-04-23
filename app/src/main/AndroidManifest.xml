@@ -60,11 +60,17 @@
 
 <activity android:name=".LoginActivity"
           android:configChanges="keyboardHidden|orientation"
-          android:label="@string/app_name"
-    />
+          android:label="@string/app_name">
+</activity>
+
 
 <activity android:name=".SweetDialogsActivity"
                   android:label="Диаложки">
+        </activity>
+
+        <activity android:name=".easter_egg"
+            android:label="@string/app_name"
+            android:theme="@style/Chaing">
         </activity>
 
 

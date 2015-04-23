@@ -4,20 +4,18 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <ImageButton
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton2"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ya"
-        android:background="#003f51b5"
-        android:onClick="onYaClick"
-        android:nestedScrollingEnabled="false" />
+        android:src="@drawable/ic"
+        android:background="#003f51b5"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Разработчики:\nРоман Заболотских\nСергей Романов"
+        android:text="0.2.2.2"
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal" />
 
