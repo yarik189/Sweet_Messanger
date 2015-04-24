@@ -30,7 +30,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.li);
+        setContentView(R.layout.dialog_list_item);
         Account account = new Account();
 
 
@@ -129,7 +129,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = convertView;
             if (view == null) {
-                view = inflater.inflate(R.layout.li, parent, false);
+                view = inflater.inflate(R.layout.dialog_list_item, parent, false);
             }
             // Вот тут самое интересное
             // узнаем View по их ID и заполняем данными
