@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,11 +28,16 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
     Account account = new Account();
     Api api;
+    ListView ListView = (ListView) findViewById(R.id.ListView);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialogs);
+
+
+
 
 
         account.restore(this);
@@ -44,43 +50,54 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
         // Усе! Дальше можно отправлять запросы на сервер
         // Получим список диалогов
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
 
-        try {
+                    final ArrayList<DialogsItem> items = new ArrayList<>();
 
-            final ArrayList<DialogsItem> items = new ArrayList<>();
+                    ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 100, null, null);
+// Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
+// Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
+// Но можем по ID
 
-            ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 100, null, null);
-            // Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
-            // Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
-            // Но можем по ID
+                    ArrayList<Long> uidsList = new ArrayList<>();
+                    for (Message message : apiDialogs) {
+                        uidsList.add(message.uid);
+                    }
+// Думаю тут понятно, нам нужен ID, Заносим в лист,
+// что бы потом вытащить инфу и пользователе.
 
-            ArrayList<Long> uidsList = new ArrayList<>();
-            for (Message message : apiDialogs) {
-                uidsList.add(message.uid);
+                    ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname", null, null, null);
+// Получаем информацию и пользователях по их ID
+// Ну и все почти
+
+                    for (int i = 0; i < apiProfiles.size(); i++) {
+
+                        User user = apiProfiles.get(i);
+                        Message message = apiDialogs.get(i);
+
+                        items.add(new DialogsItem(user.first_name + " " + user.last_name, message.body));
+
+
+                    }
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            DialogsAdapter adapter = new DialogsAdapter(getApplicationContext(), items);
+                            ListView.setAdapter(adapter);
+                        }
+                    });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
-            // Думаю тут понятно, нам нужен ID, Заносим в лист,
-            // что бы потом вытащить инфу и пользователе.
-
-            ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname", null, null, null);
-            // Получаем информацию и пользователях по их ID
-            // Ну и все почти
-
-            for (int i = 0; i < apiProfiles.size(); i++) {
-
-                User user = apiProfiles.get(i);
-                Message message = apiDialogs.get(i);
-
-                items.add(new DialogsItem(user.first_name + " " + user.last_name, message.body));
-
-
-                ListView ListView = (ListView) findViewById(R.id.ListView);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Как-то так!
+        }).start();
+    // Как-то так!
 
 
     }
