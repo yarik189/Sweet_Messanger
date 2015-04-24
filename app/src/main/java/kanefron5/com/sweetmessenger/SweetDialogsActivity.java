@@ -25,13 +25,13 @@ import java.util.ArrayList;
  */
 public class SweetDialogsActivity extends ActionBarActivity {
 
+    Account account = new Account();
     Api api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_list_item);
-        Account account = new Account();
 
 
         account.restore(this);
