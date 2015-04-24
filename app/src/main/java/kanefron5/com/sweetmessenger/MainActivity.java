@@ -214,7 +214,8 @@ public class MainActivity extends ActionBarActivity {
                                     fragment = new Color();
                                     break;
                                 case 6:
-                                    fragment = new post();
+                                    Intent w = new Intent(MainActivity.this, post.class);
+                                    startActivity(w);
                                     break;
 
                             }
