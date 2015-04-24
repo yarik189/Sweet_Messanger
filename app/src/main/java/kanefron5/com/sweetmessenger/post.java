@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class post extends ActionBarActivity {
+    //
 
     private final int REQUEST_LOGIN=1;
     
