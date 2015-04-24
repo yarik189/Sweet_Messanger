@@ -28,7 +28,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
     Account account = new Account();
     Api api;
-    ListView ListView = (ListView) findViewById(R.id.ListView);
+
 
 
     @Override
@@ -36,7 +36,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialogs);
 
-
+        final ListView ListView = (ListView) findViewById(R.id.ListView);
 
 
 

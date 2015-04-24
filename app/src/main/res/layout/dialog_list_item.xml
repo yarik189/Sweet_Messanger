@@ -12,7 +12,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="45dp"
             android:id="@+id/ivImgAvatar_dialog"
-            android:src="@drawable/ya"
+            android:src="@drawable/ic"
             android:layout_marginRight="16dp"
             android:layout_height="45dp"/>
 
