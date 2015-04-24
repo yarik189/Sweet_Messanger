@@ -31,7 +31,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_list_item);
+        setContentView(R.layout.dialogs);
 
 
         account.restore(this);
@@ -72,13 +72,8 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
                 items.add(new DialogsItem(user.first_name + " " + user.last_name, message.body));
 
-                final ListView listView = new ListView(this);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        listView.setAdapter(new DialogsAdapter(getApplicationContext(), items));
-                    }
-                });
+
+                ListView ListView = (ListView) findViewById(R.id.ListView);
             }
 
         } catch (Exception e) {
