@@ -1,9 +1,11 @@
 package kanefron5.com.sweetmessenger;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,28 +26,32 @@ import java.util.ArrayList;
 /**
  * Created by user on 22.04.15.
  */
-public class SweetDialogsActivity extends ActionBarActivity {
+public class SweetDialogsActivity extends Fragment {
 
     Account account = new Account();
     Api api;
 
-
+    public SweetDialogsActivity() {
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialogs);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        final ListView ListView = (ListView) findViewById(R.id.ListView);
+        View rootView = inflater.inflate(R.layout.dialogs, container, false);
+
+        final ListView ListView = (ListView) rootView.findViewById(R.id.ListView);
 
 
 
-        account.restore(this);
+
+
+        account.restore(getActivity());
         // Создаем API, Если есть токен
         if (account.access_token != null) {
             api = new Api(account.access_token, Constants.API_ID);
         } else {
-            Toast.makeText(this, "Access token == null", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Access token == null", Toast.LENGTH_LONG).show();
         }
 
         // Усе! Дальше можно отправлять запросы на сервер
@@ -57,7 +63,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
                     final ArrayList<DialogsItem> items = new ArrayList<>();
 
-                    ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 100, null, null);
+                    ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 200, null, null);
 // Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
 // Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
 // Но можем по ID
@@ -83,10 +89,10 @@ public class SweetDialogsActivity extends ActionBarActivity {
 
                     }
 
-                    runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            DialogsAdapter adapter = new DialogsAdapter(getApplicationContext(), items);
+                            DialogsAdapter adapter = new DialogsAdapter(getActivity().getApplicationContext(), items);
                             ListView.setAdapter(adapter);
                         }
                     });
@@ -99,7 +105,7 @@ public class SweetDialogsActivity extends ActionBarActivity {
         }).start();
     // Как-то так!
 
-
+return rootView;
     }
 
 

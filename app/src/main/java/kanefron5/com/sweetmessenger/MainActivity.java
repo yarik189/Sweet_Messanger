@@ -195,7 +195,7 @@ public class MainActivity extends ActionBarActivity {
                             switch (position) {
                                 default:
                                 case 0:
-                                    startActivity(new Intent(MainActivity.this, SweetDialogsActivity.class));
+                                    fragment = new SweetDialogsActivity();
                                     break;
                                 case 1:
                                     fragment = new Fri();
@@ -214,7 +214,7 @@ public class MainActivity extends ActionBarActivity {
                                     fragment = new Color();
                                     break;
                                 case 6:
-                                    startActivity(new Intent(MainActivity.this, post.class));
+                                    fragment = new post();
                                     break;
 
                             }

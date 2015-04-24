@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class post extends ActionBarActivity {
-    
+
     private final int REQUEST_LOGIN=1;
     
     Button authorizeButton;
@@ -26,21 +26,21 @@ public class post extends ActionBarActivity {
     
     Account account=new Account();
     Api api;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+
         setupUI();
-        
+
         //Восстановление сохранённой сессии
         account.restore(this);
-        
+
         //Если сессия есть создаём API для обращения к серверу
         if(account.access_token!=null)
             api=new Api(account.access_token, Constants.API_ID);
-        
+
         showButtons();
     }
 
@@ -55,21 +55,21 @@ public class post extends ActionBarActivity {
         postButton.setOnClickListener(postClick);
         groupbutton.setOnClickListener(groupClick);
     }
-    
+
     private OnClickListener authorizeClick=new OnClickListener(){
         @Override
         public void onClick(View v) {
             startLoginActivity();
         }
     };
-    
+
     private OnClickListener logoutClick=new OnClickListener(){
         @Override
         public void onClick(View v) {
             logOut();
         }
     };
-    
+
     private OnClickListener postClick=new OnClickListener(){
         @Override
         public void onClick(View v) {
@@ -82,7 +82,7 @@ public class post extends ActionBarActivity {
             postTolGroup();
         }
     };
-    
+
     private void startLoginActivity() {
         Intent intent = new Intent();
         intent.setClass(this, LoginActivity.class);
