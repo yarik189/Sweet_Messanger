@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.renderscript.Long2;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by user on 22.04.15.
@@ -64,20 +66,30 @@ public class SweetDialogsActivity extends Fragment {
                     final ArrayList<DialogsItem> items = new ArrayList<>();
 
                     ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 200, null, null);
-// Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
-// Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
-// Но можем по ID
+/* Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
+ Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
+ Но можем по ID */
 
                     ArrayList<Long> uidsList = new ArrayList<>();
                     for (Message message : apiDialogs) {
                         uidsList.add(message.uid);
                     }
-// Думаю тут понятно, нам нужен ID, Заносим в лист,
-// что бы потом вытащить инфу и пользователе.
+
+                   /* ArrayList<Long> Date = new ArrayList<>();
+                    for (Message message : apiDialogs) {
+                        uidsList.add(message.date);
+                    }*/
+
+
+
+
+/* Думаю тут понятно, нам нужен ID, Заносим в лист,
+ что бы потом вытащить инфу и пользователе.*/
 
                     ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname", null, null, null);
-// Получаем информацию и пользователях по их ID
-// Ну и все почти
+/* Получаем информацию и пользователях по их ID
+ Ну и все почти */
+
 
                     for (int i = 0; i < apiProfiles.size(); i++) {
 
@@ -155,7 +167,10 @@ return rootView;
             tvName.setText(dialogsItems.get(position).fullName);
 
             TextView tvBody = (TextView) view.findViewById(R.id.tvBody_dialog);
-            tvBody.setText(dialogsItems.get(position).fullName);
+            tvBody.setText(dialogsItems.get(position).body);
+
+           /* TextView tvDate = (TextView) view.findViewById(R.id.tvDate_dialog);
+            tvDate.setText(dialogsItems.get(position).date);*/
 
 
 
@@ -167,10 +182,12 @@ return rootView;
     public class DialogsItem {
         String fullName;
         String body;
+        //String date;
 
-        public DialogsItem(String fullName, String body) {
+        public DialogsItem(String fullName, String body /*String date*/ ) {
             this.fullName = fullName;
             this.body = body;
+            //this.date = date;
         }
     }
 }

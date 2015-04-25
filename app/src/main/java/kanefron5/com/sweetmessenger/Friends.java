@@ -1,222 +1,176 @@
 package kanefron5.com.sweetmessenger;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-
-import com.vk.sdk.VKAccessToken;
-import com.vk.sdk.VKScope;
-import com.vk.sdk.VKSdk;
-import com.vk.sdk.VKSdkListener;
-import com.vk.sdk.VKUIHelper;
-import com.vk.sdk.api.VKApi;
-import com.vk.sdk.api.VKApiConst;
-import com.vk.sdk.api.VKError;
-import com.vk.sdk.api.VKParameters;
-import com.vk.sdk.api.VKRequest;
-import com.vk.sdk.api.VKResponse;
-import com.vk.sdk.api.model.VKApiUserFull;
-import com.vk.sdk.api.model.VKUsersArray;
-import android.app.ListActivity;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.perm.kate.api.Api;
+import com.perm.kate.api.KException;
+import com.perm.kate.api.Message;
+import com.perm.kate.api.User;
+import org.json.JSONException;
 
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-
-
 
 /**
- * Created by Роман on 15.04.2015.
+ * Created by user on 22.04.15.
  */
-public class Friends extends ListActivity {
+public class Friends extends Fragment {
 
-    private static final String VK_APP_ID = "4856309";
+    Account account = new Account();
+    Api api;
 
-    private final VKSdkListener sdkListener = new VKSdkListener() {
-
-        @Override
-        public void onAcceptUserToken(VKAccessToken token) {
-            Log.d("VkDemoApp", "onAcceptUserToken " + token);
-            startLoading();
-        }
-
-        @Override
-        public void onReceiveNewToken(VKAccessToken newToken) {
-            Log.d("VkDemoApp", "onReceiveNewToken " + newToken);
-            startLoading();
-        }
-
-        @Override
-        public void onRenewAccessToken(VKAccessToken token) {
-            Log.d("VkDemoApp", "onRenewAccessToken " + token);
-            startLoading();
-        }
-
-        @Override
-        public void onCaptchaError(VKError captchaError) {
-            Log.d("VkDemoApp", "onCaptchaError " + captchaError);
-        }
-
-        @Override
-        public void onTokenExpired(VKAccessToken expiredToken) {
-            Log.d("VkDemoApp", "onTokenExpired " + expiredToken);
-        }
-
-        @Override
-        public void onAccessDenied(VKError authorizationError) {
-            Log.d("VkDemoApp", "onAccessDenied " + authorizationError);
-        }
-
-    };
-
-    private VKRequest currentRequest;
-    private Button loginButton;
-
-    private final List<User> users = new ArrayList<User>();
-    private ArrayAdapter<User> listAdapter;
-
+    public Friends() {
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
+        View rootView = inflater.inflate(R.layout.dialogs, container, false);
 
-        setContentView(R.layout.friends);
+        final ListView ListView = (ListView) rootView.findViewById(R.id.ListView);
 
 
-        listAdapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_2, android.R.id.text1, users) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
 
-                View view = super.getView(position, convertView, parent);
 
-                final User user = getItem(position);
 
-                ((TextView) view.findViewById(android.R.id.text1)).setText(user.getName());
-
-                String birthDateStr = "Не задано";
-
-                DateTime dt = user.getBirthDate();
-
-                if (dt != null) {
-                    birthDateStr = dt.toString(DateTimeFormat.forPattern(user.getDateFormat()));
-                }
-
-                ((TextView) view.findViewById(android.R.id.text2)).setText(birthDateStr);
-                return view;
-
-            }
-        };
-        setListAdapter(listAdapter);
-
-        VKSdk.initialize(sdkListener, VK_APP_ID);
-
-        VKUIHelper.onCreate(this);
-
-        loginButton = (Button) findViewById(R.id.qwer);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                VKSdk.authorize(VKScope.FRIENDS);
-            }
-        });
-
-        if (VKSdk.wakeUpSession()) {
-            startLoading();
+        account.restore(getActivity());
+        // Создаем API, Если есть токен
+        if (account.access_token != null) {
+            api = new Api(account.access_token, Constants.API_ID);
         } else {
-            loginButton.setVisibility(View.VISIBLE);
+            Toast.makeText(getActivity(), "Access token == null", Toast.LENGTH_LONG).show();
         }
 
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        VKUIHelper.onResume(this);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        VKUIHelper.onActivityResult(this, requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        VKUIHelper.onDestroy(this);
-        if (currentRequest != null) {
-            currentRequest.cancel();
-        }
-    }
-
-    private void startLoading() {
-        loginButton.setVisibility(View.GONE);
-        if (currentRequest != null) {
-            currentRequest.cancel();
-        }
-        currentRequest = VKApi.friends().get(VKParameters.from(VKApiConst.FIELDS, "id,first_name,last_name,bdate"));
-        currentRequest.executeWithListener(new VKRequest.VKRequestListener() {
+        // Усе! Дальше можно отправлять запросы на сервер
+        // Получим список диалогов
+        new Thread(new Runnable() {
             @Override
-            public void onComplete(VKResponse response) {
-                super.onComplete(response);
-                Log.d("VkDemoApp", "onComplete " + response);
+            public void run() {
+                try {
 
-                VKUsersArray usersArray = (VKUsersArray) response.parsedModel;
-                users.clear();
-                final String[] formats = new String[]{"dd.MM.yyyy", "dd.MM"};
+                    final ArrayList<DialogsItem> items = new ArrayList<>();
 
-                for (VKApiUserFull userFull : usersArray) {
-                    DateTime birthDate = null;
-                    String format = null;
-                    if (!TextUtils.isEmpty(userFull.bdate)) {
-                        for (int i = 0; i < formats.length; i++) {
-                            format = formats[i];
-                            try {
-                                birthDate = DateTimeFormat.forPattern(format).parseDateTime(userFull.bdate);
-                            } catch (Exception ignored) {
-                            }
-                            if (birthDate != null) {
-                                break;
-                            }
-                        }
+                    ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 200, null, null);
+// Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
+// Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
+// Но можем по ID
+
+                    ArrayList<Long> uidsList = new ArrayList<>();
+                    for (Message message : apiDialogs) {
+                        uidsList.add(message.uid);
+                    }
+// Думаю тут понятно, нам нужен ID, Заносим в лист,
+// что бы потом вытащить инфу и пользователе.
+
+                    ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname", null, null, null);
+// Получаем информацию и пользователях по их ID
+// Ну и все почти
+
+                    for (int i = 0; i < apiProfiles.size(); i++) {
+
+                        User user = apiProfiles.get(i);
+                        Message message = apiDialogs.get(i);
+
+                        items.add(new DialogsItem(user.first_name + " " + user.last_name, message.body));
+
 
                     }
-                    users.add(new User(userFull.toString(), birthDate, format));
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            DialogsAdapter adapter = new DialogsAdapter(getActivity().getApplicationContext(), items);
+                            ListView.setAdapter(adapter);
+                        }
+                    });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                listAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void attemptFailed(VKRequest request, int attemptNumber, int totalAttempts) {
-                super.attemptFailed(request, attemptNumber, totalAttempts);
-                Log.d("VkDemoApp", "attemptFailed " + request + " " + attemptNumber + " " + totalAttempts);
             }
+        }).start();
+        // Как-то так!
 
-            @Override
-            public void onError(VKError error) {
-                super.onError(error);
-                Log.d("VkDemoApp", "onError: " + error);
-            }
-
-            @Override
-            public void onProgress(VKRequest.VKProgressType progressType, long bytesLoaded, long bytesTotal) {
-                super.onProgress(progressType, bytesLoaded, bytesTotal);
-                Log.d("VkDemoApp", "onProgress " + progressType + " " + bytesLoaded + " " + bytesTotal);
-            }
-        });
+        return rootView;
     }
 
-    public void setListAdapter(ArrayAdapter<User> listAdapter) {
-        this.listAdapter = listAdapter;
+
+    private class DialogsAdapter extends BaseAdapter {
+
+        Context context;
+        ArrayList<DialogsItem> dialogsItems;
+
+        LayoutInflater inflater; // Он нам нужен, что бы конвертировать разметку в элемент
+
+        public DialogsAdapter(Context context, ArrayList<DialogsItem> dialogsItems) {
+            this.context = context;
+            this.dialogsItems = dialogsItems;
+
+            inflater = (LayoutInflater)
+                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        }
+
+        @Override
+        public int getCount() {
+            // Должен возвращать кол-во элементов
+            return dialogsItems.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            // Должен возвращать элемент по позиции
+            return dialogsItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            // Должен возвращать ID, position == id
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            if (view == null) {
+                view = inflater.inflate(R.layout.dialog_list_item, parent, false);
+            }
+            // Вот тут самое интересное
+            // узнаем View по их ID и заполняем данными
+            TextView tvName = (TextView) view.findViewById(R.id.fullName_dialog);
+            tvName.setText(dialogsItems.get(position).fullName);
+
+            TextView tvBody = (TextView) view.findViewById(R.id.tvBody_dialog);
+            tvBody.setText("пример сообщения");
+
+
+
+            return view; // Возвращаем View
+
+        }
+    }
+
+    public class DialogsItem {
+        String fullName;
+        String body;
+
+        public DialogsItem(String fullName, String body) {
+            this.fullName = fullName;
+            this.body = body;
+        }
     }
 }
