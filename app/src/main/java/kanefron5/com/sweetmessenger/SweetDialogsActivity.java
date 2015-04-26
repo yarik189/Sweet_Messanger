@@ -3,6 +3,8 @@ package kanefron5.com.sweetmessenger;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.Picture;
+import android.media.Image;
 import android.os.Bundle;
 import android.renderscript.Long2;
 import android.support.v7.app.ActionBarActivity;
@@ -12,12 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.perm.kate.api.Api;
 import com.perm.kate.api.KException;
 import com.perm.kate.api.Message;
+import com.perm.kate.api.Photo;
 import com.perm.kate.api.User;
 import org.json.JSONException;
 
@@ -53,7 +57,7 @@ public class SweetDialogsActivity extends Fragment {
         if (account.access_token != null) {
             api = new Api(account.access_token, Constants.API_ID);
         } else {
-            Toast.makeText(getActivity(), "Access token == null", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Вход не выполнен", Toast.LENGTH_LONG).show();
         }
 
         // Усе! Дальше можно отправлять запросы на сервер
@@ -96,7 +100,7 @@ public class SweetDialogsActivity extends Fragment {
                         User user = apiProfiles.get(i);
                         Message message = apiDialogs.get(i);
 
-                        items.add(new DialogsItem(user.first_name + " " + user.last_name, message.body));
+                        items.add(new DialogsItem(user.first_name + " " + user.last_name,  message.body, user.photo_200));
 
 
                     }
@@ -169,8 +173,13 @@ return rootView;
             TextView tvBody = (TextView) view.findViewById(R.id.tvBody_dialog);
             tvBody.setText(dialogsItems.get(position).body);
 
+            /**ImageView ivImgAvatar_dialog = (ImageView) view.findViewById(R.id.ivImgAvatar_dialog);
+            ivImgAvatar_dialog.setImageResource(dialogsItems.get(position).ava); */
+
            /* TextView tvDate = (TextView) view.findViewById(R.id.tvDate_dialog);
             tvDate.setText(dialogsItems.get(position).date);*/
+
+            //коротко о моем коде
 
 
 
@@ -182,11 +191,13 @@ return rootView;
     public class DialogsItem {
         String fullName;
         String body;
+        String ava;
         //String date;
 
-        public DialogsItem(String fullName, String body /*String date*/ ) {
+        public DialogsItem(String fullName, String body, String photo_200 /*String date*/ ) {
             this.fullName = fullName;
             this.body = body;
+            this.ava = photo_200;
             //this.date = date;
         }
     }
