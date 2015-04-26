@@ -3,6 +3,7 @@ package kanefron5.com.sweetmessenger;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.media.Image;
 import android.os.Bundle;
@@ -23,6 +24,9 @@ import com.perm.kate.api.KException;
 import com.perm.kate.api.Message;
 import com.perm.kate.api.Photo;
 import com.perm.kate.api.User;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -90,7 +94,7 @@ public class SweetDialogsActivity extends Fragment {
 /* Думаю тут понятно, нам нужен ID, Заносим в лист,
  что бы потом вытащить инфу и пользователе.*/
 
-                    ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname", null, null, null);
+                    ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname, photo_200" , null, null, null);
 /* Получаем информацию и пользователях по их ID
  Ну и все почти */
 
@@ -165,6 +169,11 @@ return rootView;
             if (view == null) {
                 view = inflater.inflate(R.layout.dialog_list_item, parent, false);
             }
+
+
+
+
+
             // Вот тут самое интересное
             // узнаем View по их ID и заполняем данными
             TextView tvName = (TextView) view.findViewById(R.id.fullName_dialog);
@@ -173,8 +182,14 @@ return rootView;
             TextView tvBody = (TextView) view.findViewById(R.id.tvBody_dialog);
             tvBody.setText(dialogsItems.get(position).body);
 
-            /**ImageView ivImgAvatar_dialog = (ImageView) view.findViewById(R.id.ivImgAvatar_dialog);
-            ivImgAvatar_dialog.setImageResource(dialogsItems.get(position).ava); */
+            ImageView ivImgAvatar_dialog = (ImageView) view.findViewById(R.id.ivImgAvatar_dialog);
+            ivImgAvatar_dialog.setImageResource(R.drawable.ic);
+
+            Picasso.with(context)
+                        .load(dialogsItems.get(position).ava)
+                        .placeholder(R.drawable.ic)
+                    .into(ivImgAvatar_dialog);
+
 
            /* TextView tvDate = (TextView) view.findViewById(R.id.tvDate_dialog);
             tvDate.setText(dialogsItems.get(position).date);*/
@@ -186,6 +201,8 @@ return rootView;
             return view; // Возвращаем View
 
         }
+
+
     }
 
     public class DialogsItem {
@@ -201,4 +218,8 @@ return rootView;
             //this.date = date;
         }
     }
+
+
+
 }
+
