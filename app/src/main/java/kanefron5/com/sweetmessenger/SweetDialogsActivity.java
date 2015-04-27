@@ -41,6 +41,7 @@ public class SweetDialogsActivity extends Fragment {
     Account account = new Account();
     Api api;
 
+
     public SweetDialogsActivity() {
     }
 
@@ -104,7 +105,8 @@ public class SweetDialogsActivity extends Fragment {
                         User user = apiProfiles.get(i);
                         Message message = apiDialogs.get(i);
 
-                        items.add(new DialogsItem(user.first_name + " " + user.last_name,  message.body, user.photo_200));
+                        items.add(new DialogsItem(user.first_name + " " + user.last_name,  message.body, user.photo_200, message.title, message.date));
+
 
 
                     }
@@ -190,11 +192,10 @@ return rootView;
                         .placeholder(R.drawable.ic)
                     .into(ivImgAvatar_dialog);
 
+            TextView tvDate_dialog = (TextView) view.findViewById(R.id.tvDate_dialog);
+            tvDate_dialog.setText(dialogsItems.get(position).date + " ");
 
-           /* TextView tvDate = (TextView) view.findViewById(R.id.tvDate_dialog);
-            tvDate.setText(dialogsItems.get(position).date);*/
 
-            //коротко о моем коде
 
 
 
@@ -206,16 +207,23 @@ return rootView;
     }
 
     public class DialogsItem {
+
         String fullName;
         String body;
         String ava;
+        String title;
+        Long date;
+
         //String date;
 
-        public DialogsItem(String fullName, String body, String photo_200 /*String date*/ ) {
+        public DialogsItem(String fullName, String body, String photo_200, String title, Long date ) {
             this.fullName = fullName;
             this.body = body;
             this.ava = photo_200;
-            //this.date = date;
+            this.date = date;
+            if (! title.equalsIgnoreCase("..."))this.fullName = title;
+
+
         }
     }
 
