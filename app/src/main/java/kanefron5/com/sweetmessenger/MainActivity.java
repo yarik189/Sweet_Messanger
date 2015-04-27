@@ -198,11 +198,11 @@ public class MainActivity extends ActionBarActivity {
                                     fragment = new SweetDialogsActivity();
                                     break;
                                 case 1:
-                                    fragment = new Fri();
+                                    fragment = new Friends();
 
                                     break;
                                 case 2:
-                                    fragment = new Fri();
+                                    fragment = new Friends();
                                     break;
                                 case 3:
                                     fragment = new Settings();

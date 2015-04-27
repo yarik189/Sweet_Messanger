@@ -30,6 +30,7 @@ import com.squareup.picasso.Transformation;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -227,7 +228,24 @@ return rootView;
         }
     }
 
+    public static void main(String args[]) {
+        // Получение timestamp
+        long date = System.currentTimeMillis() / 1000L;
+        System.out.println(date);
 
+        // Перевод в нормальный вид
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date resultdate = new Date(date);
+        System.out.println(sdf.format(resultdate));
+    }
+
+    public static void date(String args[]) {
+        // Получение timestamp
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date resultdate = new Date(date);
+        System.out.println(sdf.format(resultdate));
+    }
 
 }
 
