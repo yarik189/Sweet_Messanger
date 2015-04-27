@@ -222,24 +222,7 @@ public class Friends extends Fragment {
         }
     }
 
-    public static void main(String args[]) {
-        // Получение timestamp
-        long date = System.currentTimeMillis() / 1000L;
-        System.out.println(date);
 
-        // Перевод в нормальный вид
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(date);
-        System.out.println(sdf.format(resultdate));
-    }
-
-    public static void date(String args[]) {
-        // Получение timestamp
-        long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(date);
-        System.out.println(sdf.format(resultdate));
-    }
 
 }
 
