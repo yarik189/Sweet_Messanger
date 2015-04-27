@@ -194,10 +194,7 @@ return rootView;
                     .into(ivImgAvatar_dialog);
 
             TextView tvDate_dialog = (TextView) view.findViewById(R.id.tvDate_dialog);
-            tvDate_dialog.setText(dialogsItems.get(position).date + " ");
-
-
-
+            tvDate_dialog.setText(dialogsItems.get(position).formatdate);
 
 
             return view; // Возвращаем View
@@ -213,7 +210,9 @@ return rootView;
         String body;
         String ava;
         String title;
-        Long date;
+        long date;
+        String formatdate;
+
 
         //String date;
 
@@ -222,30 +221,18 @@ return rootView;
             this.body = body;
             this.ava = photo_200;
             this.date = date;
-            if (! title.equalsIgnoreCase("..."))this.fullName = title;
+            this.formatdate = new SimpleDateFormat("HH:mm").format(date * 1000);
 
+            if (! title.equalsIgnoreCase("..."))this.fullName = title;
 
         }
     }
 
-    public static void main(String args[]) {
-        // Получение timestamp
-        long date = System.currentTimeMillis() / 1000L;
-        System.out.println(date);
 
-        // Перевод в нормальный вид
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(date);
-        System.out.println(sdf.format(resultdate));
-    }
 
-    public static void date(String args[]) {
-        // Получение timestamp
-        long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(date);
-        System.out.println(sdf.format(resultdate));
-    }
+
+
+
 
 }
 
