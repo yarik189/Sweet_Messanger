@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 
 public class LoginActivity extends Activity {
         private static final String TAG = "Kate.LoginActivity";
-private int x;
+
         WebView webview;
 
         @Override
@@ -46,14 +46,7 @@ private int x;
                 parseUrl(url);
             }
         }
-    public void onBtnClick(View v){
-        x++;
-        if (x==5) {
-            x=0;
-            Intent i = new Intent(this, easter_egg.class);
-            startActivity(i);
-        }
-    }
+
         private void parseUrl(String url) {
             try {
                 if (url == null)
@@ -84,12 +77,12 @@ private int x;
 *              0000000
 *            10  1 1  01
 *             0   1   0                                           1
-*             0  111  0                                           1
-*              0000000                       1111                 0
-*                 0                         111111                01
-*          000000000000000       1  1        1111                 0
-*         0  0         0  0       11                              1
-*        0   0         0   0    00000                             1
+*             0  111  0                                           10
+*              0000000                        11                  010
+*                 0                          1111                 0101
+*          000000000000000       1  1       111111                010
+*         0  0         0  0       11         1111                 10
+*        0   0         0   0    00000         11                  1
 *       0    0         0    0000
 *       0    0         0
 *            0         0

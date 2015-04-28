@@ -33,6 +33,8 @@ public class Start extends ActionBarActivity {
 
         setupUI();
 
+
+
         //Восстановление сохранённой сессии
         account.restore(this);
 
@@ -43,7 +45,14 @@ public class Start extends ActionBarActivity {
 
         showActivitys();
     }
-
+    public void onBtnClick(View v){
+        x++;
+        if (x==5) {
+            x=0;
+            Intent i = new Intent(this, easter_egg.class);
+            startActivity(i);
+        }
+    }
     private void setupUI() {
         button3=(Button)findViewById(R.id.button3);
         button4=(Button)findViewById(R.id.button4);
