@@ -162,6 +162,7 @@ public class post extends ActionBarActivity {
     void showButtons(){
         if(api!=null){
             authorizeButton.setVisibility(View.GONE);
+            groupbutton.setVisibility(View.VISIBLE);
             logoutButton.setVisibility(View.VISIBLE);
             postButton.setVisibility(View.VISIBLE);
             messageEditText.setVisibility(View.VISIBLE);
@@ -170,6 +171,7 @@ public class post extends ActionBarActivity {
             logoutButton.setVisibility(View.GONE);
             postButton.setVisibility(View.GONE);
             messageEditText.setVisibility(View.GONE);
+            groupbutton.setVisibility(View.GONE);
         }
     }
 }
