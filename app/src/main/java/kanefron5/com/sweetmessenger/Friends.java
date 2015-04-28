@@ -41,7 +41,7 @@ public class Friends extends Fragment {
 
     Account account = new Account();
     Api api;
-
+Long user_id = account.user_id;
 
     public Friends() {
     }
@@ -75,14 +75,14 @@ public class Friends extends Fragment {
 
                     final ArrayList<DialogsItem> items = new ArrayList<>();
 
-                    ArrayList<Message> apiDialogs = api.getMessagesDialogs(0, 200, null, null);
+                    ArrayList<User> Userss = api.getFriends(account.user_id, "nickname, photo_200", null, null, null, null);
 /* Желательно читать доки. Тут мы получаем 100 сообщений, начиная от начала
  Но прикол в том, что так мы не можем получить имя и фамилию (Читаем документацию)
  Но можем по ID */
 
                     ArrayList<Long> uidsList = new ArrayList<>();
-                    for (Message message : apiDialogs) {
-                        uidsList.add(message.uid);
+                    for (User user : Userss) {
+                        uidsList.add(user.uid);
                     }
 
                    /* ArrayList<Long> Date = new ArrayList<>();
@@ -104,7 +104,7 @@ public class Friends extends Fragment {
                     for (int i = 0; i < apiProfiles.size(); i++) {
 
                         User user = apiProfiles.get(i);
-                        Message message = apiDialogs.get(i);
+                        User message = Userss.get(i);
 
                         items.add(new DialogsItem(user.first_name + " " + user.last_name, user.photo_200));
 

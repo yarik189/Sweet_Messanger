@@ -25,12 +25,20 @@ public class Start extends ActionBarActivity {
 
     Account account=new Account();
     Api api;
+    private android.support.v7.widget.Toolbar mRelativeLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_romik);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.start);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
+        mRelativeLayout = (android.support.v7.widget.Toolbar)findViewById(R.id.start);
+
+
+        mRelativeLayout.setTitleTextColor(getResources().getColor(R.color.White));
         setupUI();
 
 
