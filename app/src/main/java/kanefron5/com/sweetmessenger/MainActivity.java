@@ -160,13 +160,13 @@ public class MainActivity extends ActionBarActivity {
                 .withActionBarDrawerToggle(true)
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.mes).withIcon(R.drawable.ic_messages),
+                        new PrimaryDrawerItem().withName(R.string.mes).withIcon(R.drawable.ic_messages).withBadge(""),
                         new PrimaryDrawerItem().withName(R.string.friends).withIcon(R.drawable.ic_friends),
                         new SectionDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.settings).withIcon(R.drawable.ic_settings),
                         new SecondaryDrawerItem().withName(R.string.contact).withIcon(R.drawable.ic_talkback),
                         new SecondaryDrawerItem().withName("Визуализация").withIcon(R.drawable.ic_color),
-                        new SecondaryDrawerItem().withName("Пост")
+                        new SecondaryDrawerItem().withName("Пост").withIcon(R.drawable.ic_create)
 
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
