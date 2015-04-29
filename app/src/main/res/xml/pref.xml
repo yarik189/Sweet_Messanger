@@ -35,7 +35,7 @@
 
         <PreferenceScreen
             android:title="Дима Голубенко"
-            android:summary="Кодер">
+            android:summary="Десигнер">
             <Preference
                 android:title="Вконтакте">
                 <intent
@@ -76,15 +76,9 @@
     <PreferenceScreen
         android:title="Благодарности">
         <PreferenceScreen
-            android:title="Женя Мацнев"
-            android:summary="Графика">
-            <Preference
-                android:title="Вконтакте">
-                <intent
-                    android:action="android.intent.action.VIEW"
-                    android:data="http://vk.com/id___777___cross">
-                </intent>
-            </Preference>
+            android:title="Тестеры"
+            android:summary="Тестировка">
+
 
         </PreferenceScreen>
         </PreferenceScreen>
@@ -95,12 +89,12 @@
         android:title="О сборке"/>
     <Preference
         android:title="Версия"
-        android:summary="0.2.2.1.4.1"
+        android:summary="0.2.2.1.4.2"
         android:key="version">
     </Preference>
     <Preference
         android:title="Дата сборки"
-        android:summary="28.04.2015 19-34(kanefron5)">
+        android:summary="29.04.2015 19-34(kanefron5)">
     </Preference>
     <PreferenceCategory
         android:title="Для разработчиков"/>

@@ -166,7 +166,8 @@ public class MainActivity extends ActionBarActivity {
                         new SecondaryDrawerItem().withName(R.string.settings).withIcon(R.drawable.ic_settings),
                         new SecondaryDrawerItem().withName(R.string.contact).withIcon(R.drawable.ic_talkback),
                         new SecondaryDrawerItem().withName("Визуализация").withIcon(R.drawable.ic_color),
-                        new SecondaryDrawerItem().withName("Пост").withIcon(R.drawable.ic_create)
+                        new SecondaryDrawerItem().withName("Пост").withIcon(R.drawable.ic_create),
+                        new SecondaryDrawerItem().withName("Группы")
 
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
@@ -216,6 +217,9 @@ public class MainActivity extends ActionBarActivity {
                                 case 6:
                                     Intent w = new Intent(MainActivity.this, post.class);
                                     startActivity(w);
+                                    break;
+                                case 7:
+                                    fragment = new Groups();
                                     break;
 
                             }

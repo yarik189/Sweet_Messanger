@@ -1,49 +1,33 @@
 package kanefron5.com.sweetmessenger;
 
-import android.app.Activity;
+/**
+ * Created by Роман on 29.04.2015.
+ */
+
 import android.app.Fragment;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Picture;
-import android.media.Image;
 import android.os.Bundle;
-import android.renderscript.Long2;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.perm.kate.api.Api;
-import com.perm.kate.api.KException;
-import com.perm.kate.api.Message;
-import com.perm.kate.api.Photo;
-import com.perm.kate.api.User;
+
+import com.perm.kate.api.Group;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
-
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import com.perm.kate.api.Api;
 
-/**
- * Created by user on 22.04.15.
- */
-public class Friends extends Fragment {
+public class Groups extends Fragment {
 
     Account account = new Account();
     Api api;
-Long user_id = account.user_id;
+    Long user_id = account.user_id;
 
-    public Friends() {
+    public Groups() {
     }
 
     @Override
@@ -75,37 +59,10 @@ Long user_id = account.user_id;
 
                     final ArrayList<DialogsItem> items = new ArrayList<>();
 
-                    ArrayList<User> Userss = api.getFriends(account.user_id, "nickname, photo_200", "hints", null, null, null);
-
-
-                    ArrayList<Long> uidsList = new ArrayList<>();
-                    for (User user : Userss) {
-                        uidsList.add(user.uid);
-                    }
+                    ArrayList<Group> Groups = api.getUserGroups(user_id);
 
 
 
-
-
-
-/* Думаю тут понятно, нам нужен ID, Заносим в лист,
- что бы потом вытащить инфу и пользователе.*/
-
-                    ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname, photo_200" , null, null, null);
-/* Получаем информацию и пользователях по их ID
- Ну и все почти */
-
-
-                    for (int i = 0; i < apiProfiles.size(); i++) {
-
-                        User user = apiProfiles.get(i);
-                        User message = Userss.get(i);
-
-                        items.add(new DialogsItem(user.first_name + " " + user.last_name, user.photo_200));
-
-
-
-                    }
 
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -220,4 +177,5 @@ Long user_id = account.user_id;
 
 
 }
+
 

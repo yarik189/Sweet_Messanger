@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by Роман on 23.04.2015.
+ * Created by  on 23.04.2015.
  */
 public class easter_egg extends Activity {
 

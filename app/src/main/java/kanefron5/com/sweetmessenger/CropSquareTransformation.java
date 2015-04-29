@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import com.squareup.picasso.Transformation;
 
 /**
- * Created by Роман on 26.04.2015.
+ * Created by  on 26.04.2015.
  */
 public class CropSquareTransformation implements Transformation {
     @Override public Bitmap transform(Bitmap source) {

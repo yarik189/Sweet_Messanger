@@ -28,7 +28,11 @@ public class Start extends ActionBarActivity {
     private android.support.v7.widget.Toolbar mRelativeLayout;
 
     @Override
+
     public void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_romik);
         Toolbar toolbar = (Toolbar) findViewById(R.id.start);
@@ -49,6 +53,7 @@ public class Start extends ActionBarActivity {
         //Если сессия есть создаём API для обращения к серверу
         if(account.access_token!=null)
             api=new Api(account.access_token, Constants.API_ID);
+
 
 
         showActivitys();
