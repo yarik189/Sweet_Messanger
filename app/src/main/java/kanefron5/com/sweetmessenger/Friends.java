@@ -3,6 +3,7 @@ package kanefron5.com.sweetmessenger;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.media.Image;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -37,11 +39,13 @@ import java.util.Date;
 /**
  * Created by user on 22.04.15.
  */
-public class Friends extends Fragment {
+public class Friends extends Fragment implements AdapterView.OnItemClickListener {
 
     Account account = new Account();
     Api api;
 Long user_id = account.user_id;
+
+
 
     public Friends() {
     }
@@ -52,36 +56,52 @@ Long user_id = account.user_id;
 
         View rootView = inflater.inflate(R.layout.friends, container, false);
 
+
+
         final ListView ListView = (ListView) rootView.findViewById(R.id.ListView);
 
 
 
 
 
-        account.restore(getActivity());
-        // Создаем API, Если есть токен
-        if (account.access_token != null) {
-            api = new Api(account.access_token, Constants.API_ID);
-        } else {
-            Toast.makeText(getActivity(), "Вход не выполнен", Toast.LENGTH_LONG).show();
-        }
-
-        // Усе! Дальше можно отправлять запросы на сервер
-        // Получим список диалогов
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-
-                    final ArrayList<DialogsItem> items = new ArrayList<>();
-
-                    ArrayList<User> Userss = api.getFriends(account.user_id, "nickname, photo_200", "hints", null, null, null);
 
 
-                    ArrayList<Long> uidsList = new ArrayList<>();
-                    for (User user : Userss) {
-                        uidsList.add(user.uid);
-                    }
+                account.restore(
+
+            getActivity()
+
+            );
+            // Создаем API, Если есть токен
+            if(account.access_token!=null)
+
+            {
+                api = new Api(account.access_token, Constants.API_ID);
+            }
+
+            else
+
+            {
+                Toast.makeText(getActivity(), "Вход не выполнен", Toast.LENGTH_LONG).show();
+            }
+
+            // Усе! Дальше можно отправлять запросы на сервер
+            // Получим список диалогов
+            new
+
+            Thread(new Runnable() {
+                @Override
+                public void run () {
+                    try {
+
+                        final ArrayList<DialogsItem> items = new ArrayList<>();
+
+                        ArrayList<User> Userss = api.getFriends(account.user_id, "nickname, photo_200", "hints", null, null, null);
+
+
+                        ArrayList<Long> uidsList = new ArrayList<>();
+                        for (User user : Userss) {
+                            uidsList.add(user.uid);
+                        }
 
 
 
@@ -91,39 +111,47 @@ Long user_id = account.user_id;
 /* Думаю тут понятно, нам нужен ID, Заносим в лист,
  что бы потом вытащить инфу и пользователе.*/
 
-                    ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname, photo_200" , null, null, null);
+                        ArrayList<User> apiProfiles = api.getProfiles(uidsList, null, "nickname, photo_200", null, null, null);
 /* Получаем информацию и пользователях по их ID
  Ну и все почти */
 
 
-                    for (int i = 0; i < apiProfiles.size(); i++) {
+                        for (int i = 0; i < apiProfiles.size(); i++) {
 
-                        User user = apiProfiles.get(i);
-                        User message = Userss.get(i);
+                            User user = apiProfiles.get(i);
+                            User message = Userss.get(i);
 
-                        items.add(new DialogsItem(user.first_name + " " + user.last_name, user.photo_200));
+                            items.add(new DialogsItem(user.first_name + " " + user.last_name, user.photo_200));
 
 
+                        }
 
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DialogsAdapter adapter = new DialogsAdapter(getActivity().getApplicationContext(), items);
+                                ListView.setAdapter(adapter);
+                            }
+                        });
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            DialogsAdapter adapter = new DialogsAdapter(getActivity().getApplicationContext(), items);
-                            ListView.setAdapter(adapter);
-                        }
-                    });
-
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-
             }
-        }).start();
-        // Как-то так!
 
-        return rootView;
+            ).
+
+            start();
+            // Как-то так!
+
+            return rootView;
+        }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
     }
 
 
@@ -140,6 +168,8 @@ Long user_id = account.user_id;
 
             inflater = (LayoutInflater)
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+
 
         }
 
@@ -199,6 +229,8 @@ Long user_id = account.user_id;
 
 
     }
+
+
 
     public class DialogsItem {
 

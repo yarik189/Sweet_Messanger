@@ -3,6 +3,7 @@ package kanefron5.com.sweetmessenger;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.media.Image;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -54,7 +56,28 @@ public class SweetDialogsActivity extends Fragment {
 
         final ListView ListView = (ListView) rootView.findViewById(R.id.ListView);
 
+        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                DialogsItem item = (DialogsItem) parent.getItemAtPosition(position);
+
+
+
+                Intent intent = new Intent(getActivity(), Start.class);
+                intent.putExtra("user_id", item.user_id);
+                intent.putExtra("fullName", item.fullName);
+                intent.putExtra("chat_id", item.title);
+                intent.putExtra("photo_50", item.ava);
+                startActivity(intent);
+
+// Анимация переходов между активити
+
+
+            }
+
+
+        });
 
 
 
@@ -106,7 +129,7 @@ public class SweetDialogsActivity extends Fragment {
                         User user = apiProfiles.get(i);
                         Message message = apiDialogs.get(i);
 
-                        items.add(new DialogsItem(user.first_name + " " + user.last_name,  message.body, user.photo_200, message.title, message.date));
+                        items.add(new DialogsItem(user.uid, user.first_name + " " + user.last_name,  message.body, user.photo_200, message.title, message.date));
 
 
 
@@ -211,17 +234,19 @@ return rootView;
         String ava;
         String title;
         long date;
+        Long user_id;
         String formatdate;
 
 
         //String date;
 
-        public DialogsItem(String fullName, String body, String photo_200, String title, Long date ) {
+        public DialogsItem(Long userID,String fullName, String body, String photo_200, String title, Long date ) {
             this.fullName = fullName;
             this.body = body;
             this.ava = photo_200;
             this.date = date;
             this.formatdate = new SimpleDateFormat("HH:mm").format(date * 1000);
+            this.user_id = user_id;
 
             if (! title.equalsIgnoreCase("..."))this.fullName = title;
 

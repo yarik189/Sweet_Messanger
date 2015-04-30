@@ -56,6 +56,7 @@ public class Start extends ActionBarActivity {
 
 
 
+
         showActivitys();
     }
     public void onBtnClick(View v){
