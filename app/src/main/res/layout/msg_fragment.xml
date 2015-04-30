@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp"
+    android:id="@+id/lLayout_dialog"
+    android:orientation="horizontal"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="45dp"
+        android:id="@+id/ivImgAvatar_dialog"
+        android:src="@drawable/ic"
+        android:layout_marginRight="16dp"
+        android:layout_height="45dp"/>
+
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_weight="1"
+                  android:paddingBottom="3dp"
+                  android:layout_height="wrap_content"
+                  android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Сообщение"
+            android:padding="1dp"
+            android:textColor="#bebebe"
+            android:id="@+id/tvBody_dialog"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.50"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Дата"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/tvDate_dialog"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
